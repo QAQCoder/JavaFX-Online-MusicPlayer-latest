@@ -32,6 +32,14 @@ public class NewSongCell extends HBox {
     private JFXButton btnAdd = new JFXButton("+");
     private Tooltip tooltip = new Tooltip();
 
+    private String attribute = null;
+    public String getAttribute() {
+        return attribute;
+    }
+    public void setAttribute(String attribute) {
+        this.attribute = attribute;
+    }
+
     private int index;
     private KuGouMusicPlay.DataBean dataBean = null;
     private byte whoIsMyLv = 0;

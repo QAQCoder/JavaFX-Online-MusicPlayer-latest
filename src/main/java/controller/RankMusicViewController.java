@@ -162,7 +162,7 @@ public class RankMusicViewController extends BaseController implements Initializ
                 System.out.println("RankMusicViewController---jfxLvShowRankSongs.getItems().isEmpty()");
                 return;
             } else {
-//                MusicResources.getInstance().setCurrMusicList();
+                MusicResources.getInstance().setCurrMusicList(mapRankSongData.get(jfxLvShowRankSongs.getItems().get(0).getAttribute()));
             }
         });
     }//initEvent
@@ -263,7 +263,9 @@ public class RankMusicViewController extends BaseController implements Initializ
                         List<NewSongCell> newSongCells = new ArrayList<>(kuGouMusicPlays.size());
                         List<KuGouMusicPlay.DataBean> cellsData = new ArrayList<>();
                         Stream.iterate(0, i -> i+1).limit(kuGouMusicPlays.size()).forEach(i -> {
-                            newSongCells.add(new NewSongCell(i+1, kuGouMusicPlays.get(i).getData(), RANK_LV, true));
+                            NewSongCell newSongCell = new NewSongCell(i + 1, kuGouMusicPlays.get(i).getData(), RANK_LV, true);
+                            newSongCell.setAttribute(selectedItem.getRankname());
+                            newSongCells.add(newSongCell);
                             cellsData.add(kuGouMusicPlays.get(i).getData());
                         });
                         mapRankSong.put(selectedItem.getRankname(), newSongCells);
