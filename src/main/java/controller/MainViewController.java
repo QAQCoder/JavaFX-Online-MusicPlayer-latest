@@ -79,7 +79,7 @@ public class MainViewController extends BaseController implements Initializable 
         btnSetting.setOnAction(ae -> {
             JFXDialogLayout dialogLayout = new JFXDialogLayout();
             dialogLayout.setBody(LoadUtil.loadFXML("fxml/items/setting_view.fxml"));
-            dialogLayout.setPrefSize(600, 400);
+            dialogLayout.setPrefSize(600, 340);
             new JFXDialog(stackPane, dialogLayout, JFXDialog.DialogTransition.TOP).show();
         });
 

@@ -107,16 +107,15 @@ public class SingerViewController extends BaseController implements Initializabl
 
     @Override
     public void initData(Object data) { //这里data暂时无用
-        System.out.println("SingerViewController---initData----" + (int)data);
+//        System.out.println("SingerViewController---initData----" + (int)data);
         if (!CommonResources.isSingerRefreshDone) {
             Notifications.create().title("不急").text("上次获取歌手列表没完成").showInformation();
             return;
         }
 
         CompletableFuture.supplyAsync(() -> {
-            System.out.println("SingerViewController---initData---runAsync");
+//            System.out.println("SingerViewController---initData---runAsync");
             CommonResources.isSingerRefreshDone = false;    //改标志
-            System.out.println("这里是不是Javafx的UI线程：" + Platform.isFxApplicationThread());
             jfxSpinner.setVisible(true);    //显示进度条
             return iMusicService.getSingerList((int) data);   //根据id得到歌手
         }).whenComplete((list, throwable) -> {

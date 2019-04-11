@@ -123,7 +123,8 @@ public class MusicTvController extends BaseController implements Initializable {
     private void initEvent() {
         tableView.setOnMouseClicked(me -> {
             if (me.getClickCount() == 2) {
-                playMusic();
+                MusicResources.getInstance().setCurrMusicList(tableView.getSelectionModel().getSelectedItem());
+                ((BottomController) BaseController.BC_CONTEXT.get(BottomController.class.getName())).playMusic(tableView.getSelectionModel().getSelectedItem(), true);
             }
         });
 

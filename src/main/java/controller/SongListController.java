@@ -58,7 +58,7 @@ public class SongListController extends BaseController implements Initializable 
     }
 
     private void initView() {
-        System.out.println("SongListController----initView");
+//        System.out.println("SongListController----initView");
          jfxMasonryPaneChildren = jfxMasonryPane.getChildren();
         //绑定宽度高度
         jfxMasonryPane.prefWidthProperty().bind(scrollPane.widthProperty());

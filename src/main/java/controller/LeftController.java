@@ -293,8 +293,8 @@ public class LeftController extends BaseController implements Initializable {
 
         //获取用户自己创建的收藏夹
         List<CollectionAlbum> allAlbum = dbService.getAllAlbum(8);
-        System.out.println("获取所有收藏夹：" + allAlbum.size());
-        allAlbum.forEach(item -> System.out.println("遍历收藏夹：" + item));
+//        System.out.println("获取所有收藏夹：" + allAlbum.size());
+//        allAlbum.forEach(item -> System.out.println("遍历收藏夹：" + item));
         //遍历所有第三方收藏夹
         allAlbum.forEach(item -> {
             //获取ListView

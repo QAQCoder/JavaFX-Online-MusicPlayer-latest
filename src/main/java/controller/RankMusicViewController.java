@@ -168,7 +168,7 @@ public class RankMusicViewController extends BaseController implements Initializ
     }//initEvent
 
     private void initNewSongData() {
-        System.out.println("RankMusicViewController---initNewSongData");
+//        System.out.println("RankMusicViewController---initNewSongData");
         CompletableFuture.supplyAsync(() -> {
             //显示进度条
             imgVBanner.setOpacity(0.3);
@@ -282,7 +282,7 @@ public class RankMusicViewController extends BaseController implements Initializ
 
     @Override
     public void initData(Object data) {
-        System.out.println("RankMusicViewController-----initData获取音乐榜单数据");
+//        System.out.println("RankMusicViewController-----initData获取音乐榜单数据");
         if (data != null) {
             list = (NewMusicList) data;
             return;
