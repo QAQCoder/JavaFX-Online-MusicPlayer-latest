@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="971cf7a2-a975-4e56-8cf3-aedd2fe33f34" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/preview/a.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LeftController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LeftController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MusicTvController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MusicTvController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/RankMusicViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/RankMusicViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/SingerViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/SingerViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/SongListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/SongListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/music.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/music.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/items/setting_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/items/setting_view.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="971cf7a2-a975-4e56-8cf3-aedd2fe33f34" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -477,6 +466,11 @@
             <path>
               <item name="JavaFXOnlineMusicPlayer" type="b2602c69:ProjectViewProjectNode" />
               <item name="JavaFXOnlineMusicPlayer" type="462c0819:PsiDirectoryNode" />
+              <item name="preview" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JavaFXOnlineMusicPlayer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JavaFXOnlineMusicPlayer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -570,7 +564,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/A_Projects/IDEA_projects/FX-MusicDemo/src/main/java/view/CommonView.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554985494191" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554986061812" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -586,8 +580,8 @@
       <recent name="controller" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\A_Projects\IDEA_projects\JavaFXOnlineMusicPlayer\src\main\resources\fxml\items" />
       <recent name="D:\A_Projects\IDEA_projects\JavaFXOnlineMusicPlayer\preview" />
+      <recent name="D:\A_Projects\IDEA_projects\JavaFXOnlineMusicPlayer\src\main\resources\fxml\items" />
       <recent name="D:\A_Projects\IDEA_projects\JavaFXOnlineMusicPlayer\src\main\resources\fxml" />
       <recent name="D:\A_Projects\IDEA_projects\JavaFXOnlineMusicPlayer\src\main\java" />
       <recent name="D:\A_Projects\IDEA_projects\FX-MusicDemo\src\main\resources\icon" />
@@ -886,7 +880,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1098139000" />
+    <option name="totallyTimeSpent" value="1098579000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
