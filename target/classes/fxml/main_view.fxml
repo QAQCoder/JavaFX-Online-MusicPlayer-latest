@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.*?>
+<StackPane fx:id="stackPane" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainViewController">
+    <BorderPane fx:id="mainPane">
+        <top>
+            <VBox stylesheets="@../css/top_vbox.css">
+                <Pane prefHeight="0.1" style="-fx-background-color: transparent;" VBox.vgrow="NEVER" />
+                <fx:include fx:id="vBoxToDrag" source="items/top_view.fxml" />
+            </VBox>
+        </top>
+
+        <center>
+            <SplitPane fx:id="splitPane" stylesheets="@../css/splitPane_css.css" BorderPane.alignment="CENTER">
+                <JFXTabPane fx:id="centerTabPane" styleClass="jfxTabPane"/>
+            </SplitPane>
+        </center>
+
+        <bottom>
+            <!--<fx:include fx:id="" source="items/bottom_view.fxml" />-->
+        </bottom>
+
+        <left>
+            <!--<fx:include fx:id="leftPane" source="items/left_view.fxml" />-->
+        </left>
+
+        <right>
+            <!--<fx:include source="items/lyric_view.fxml"/>-->
+        </right>
+    </BorderPane>
+</StackPane>

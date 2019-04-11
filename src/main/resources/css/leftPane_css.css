@@ -1,0 +1,76 @@
+
+.stackPane {
+    -fx-background-color: #608CC7;
+}
+
+.titled-pane {
+    -fx-background-color: transparent;
+}
+
+.titled-pane > .content {
+    -fx-background-color: transparent;
+}
+
+.jfx-tab-pane {
+    /*-fx-background-color: #b7b7b7;*/
+}
+
+.jfx-tab-pane > .depth-container > .tab-header-area > .tab-header-background {
+    -fx-background-color: rgb(52, 109, 207);
+}
+
+.titled-pane > .title {
+    -fx-pref-height: 35;
+    -fx-background-color: #4691c8;
+}
+.titled-pane > .title:hover {
+    -fx-background-color: #7d7d7d;
+}
+.titled-pane > .title > .text {
+    -fx-font-size: 13;
+    -fx-text-origin: top;
+}
+/* 展开的背景色 */
+.titled-pane:expanded > .title {
+    -fx-background-color: #2b5677;
+}
+.titled-pane > .title > .text {
+    -fx-fill: white;
+}
+
+/* 修改listview */
+.list-view {
+    -fx-background-color: transparent;
+}
+.list-view > .virtual-flow > .clipped-container > .sheet > .list-cell {
+    -fx-cell-size: 30;
+}
+.list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:hover {
+    -fx-background-color: #4892cc;
+}
+.list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:selected {
+    -fx-background-color: #7d7d7d;
+}
+.list-view > .virtual-flow > .clipped-container > .sheet > .list-cell {
+    -fx-background-color: transparent;
+}
+/*-----------------------------------*/
+.list-view > .virtual-flow > .scroll-bar {
+    -fx-background-color:transparent;
+}
+.list-view > .virtual-flow > .scroll-bar > .track {
+    -fx-background-color:transparent;
+}
+.list-view > .virtual-flow > .scroll-bar> .thumb {
+    -fx-background-color:pink;
+    -fx-opacity: 0.3;
+}
+.list-view > .virtual-flow > .scroll-bar > .thumb:hover {
+    -fx-background-color:pink;
+}
+.list-view > .virtual-flow > .scroll-bar> .thumb:selected {
+    -fx-background-color:gray;
+}
+.list-view > .virtual-flow > .corner {
+    -fx-background-color:transparent;
+}

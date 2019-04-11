@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="music_pane" prefHeight="442.0" prefWidth="595.0" stylesheets="@../../css/table_view_css.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MusicTvController">
+   <center>
+       <AnchorPane cache="true" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #cfcfcf;" BorderPane.alignment="CENTER">
+           <Pagination fx:id="pagination" maxPageIndicatorCount="5" pageCount="10" prefWidth="595.0" style="-fx-border-color: gray; -fx-border-width: 0.2 0 0 0; -fx-background-color: transparent;" stylesheets="@../../css/pagination_css.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <padding>
+                <Insets bottom="-3.0" />
+            </padding>
+           </Pagination>
+           <TableView fx:id="tableView" cache="true" cacheHint="SPEED" editable="true" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <columns>
+                   <TableColumn fx:id="tColumn_first" styleClass="firstColumn" text="序号" />
+                   <TableColumn fx:id="tColumn_music" styleClass="firstColumn" text="歌曲标题" />
+                   <TableColumn fx:id="tColumn_musical" styleClass="firstColumn" text="歌手" />
+                   <TableColumn fx:id="tColumn_album" styleClass="firstColumn" text="专辑" />
+                   <TableColumn fx:id="tColumn_time" styleClass="firstColumn" text="时长" />
+                   <TableColumn fx:id="tColumn_operate" styleClass="firstColumn" text="操作" />
+               </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+           </TableView>
+       </AnchorPane>
+   </center>
+   <top>
+       <TitledPane style="-fx-background-color: #b7b7b7;" text="播放列表信息" underline="true" BorderPane.alignment="CENTER">
+           <AnchorPane prefHeight="150.0" style="-fx-background-color: #cfcfcf;">
+               <padding>
+                   <Insets left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <ImageView fx:id="imgViewIcon" fitHeight="155.0" fitWidth="155.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="5.0">
+                   <Image url="@../../icon/icon2.png" />
+               </ImageView>
+               <Label layoutX="175.0" layoutY="14.0" text="标题：" />
+               <Label fx:id="labTitle" layoutX="223.0" layoutY="12.0" text="那些循环播放的歌" textOverrun="CLIP" AnchorPane.leftAnchor="215.0" AnchorPane.topAnchor="8.0">
+                   <font>
+                       <Font size="13.0" />
+                   </font>
+               </Label>
+               <Label layoutX="176.0" layoutY="52.0" text="介绍：" />
+               <Button fx:id="btnPlay" layoutX="494.0" layoutY="10.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="71.0" text="播放" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="5.0" />
+               <JFXTextArea fx:id="jfxTextAreaIntro" editable="false" focusColor="#ffffff00" layoutX="227.0" layoutY="61.0" prefHeight="98.0" prefWidth="348.0" style="-fx-border-color: gray; -fx-border-radius: 10;" text="那些喜欢听到循环播放的歌" unFocusColor="#ffffff00" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="50.0">
+                   <padding>
+                       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                   </padding>
+                   <font>
+                       <Font size="13.0" />
+                   </font>
+               </JFXTextArea>
+               <Label fx:id="labOtherInfo" layoutX="427.0" layoutY="12.0" text="未知" textOverrun="CLIP" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="8.0">
+                   <font>
+                       <Font size="13.0" />
+                   </font>
+               </Label>
+               <Label layoutX="327.0" layoutY="13.0" text="歌曲数量：" textOverrun="CLIP" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="8.0">
+                   <font>
+                       <Font size="13.0" />
+                   </font>
+               </Label>
+           </AnchorPane>
+       </TitledPane>
+   </top>
+</BorderPane>

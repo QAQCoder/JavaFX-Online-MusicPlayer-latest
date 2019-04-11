@@ -1,0 +1,1 @@
+java -Xms512m -Xmx512m -Dfile.encoding=utf-8 -jar "D:\A_Projects\IDEA_projects\FX-MusicDemo\target\cn.hlx-1.0-SNAPSHOT.jar"

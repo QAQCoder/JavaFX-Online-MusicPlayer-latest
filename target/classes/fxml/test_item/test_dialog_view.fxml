@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXSpinner?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="ap" prefHeight="300.0" prefWidth="500.0"
+            style="-fx-background-color: #939393; -fx-background-radius: 50; -fx-border-radius: 45; -fx-border-color: pink; -fx-border-width: 3;"
+            stylesheets="@../../css/spinner_css.css" xmlns="http://javafx.com/javafx/8.0.172-ea"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="test.TestDialog">
+    <padding>
+        <Insets bottom="50.0" left="50.0" right="50.0" top="50.0"/>
+    </padding>
+    <Label contentDisplay="CENTER" layoutX="58.0" layoutY="39.0" text="加载中" textAlignment="CENTER" textFill="WHITE"
+           AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <font>
+            <Font size="30"/>
+        </font>
+    </Label>
+    <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+               AnchorPane.topAnchor="0.0">
+        <JFXSpinner layoutX="215.0" layoutY="115.0" prefHeight="200.0" prefWidth="200.0" style="-jfx-radius: 50;"
+                    AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                    AnchorPane.topAnchor="50.0"/>
+    </StackPane>
+    <JFXButton fx:id="btnClose" layoutX="531.0" layoutY="14.0" prefHeight="50.0" prefWidth="50.0"
+               style="-fx-background-radius: 50;" styleClass="btn_close" text="X" AnchorPane.rightAnchor="-45.0"
+               AnchorPane.topAnchor="-45.0"/>
+    <Button fx:id="btnDialog" layoutX="349.0" layoutY="61.0" mnemonicParsing="false" text="JFXDialog"/>
+</AnchorPane>

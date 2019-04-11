@@ -1,0 +1,19 @@
+/*-----------------------------------*/
+.scroll-bar {
+    -fx-background-color:transparent;
+}
+.scroll-bar > .track {
+    -fx-background-color:transparent;
+}
+.scroll-bar> .thumb {
+    -fx-background-color:#4691c8;
+    -fx-opacity: 0.5;
+}
+.scroll-bar > .thumb:hover {
+    -fx-background-color:#4691c8;
+    -fx-opacity: 0.8;
+}
+.scroll-bar> .thumb:selected {
+    -fx-background-color:transparent;
+    -fx-opacity: 1.0;
+}

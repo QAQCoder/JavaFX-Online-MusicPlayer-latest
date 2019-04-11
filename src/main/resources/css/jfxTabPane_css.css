@@ -1,0 +1,8 @@
+
+tabPane {
+    -fx-background-color: #608CC7;
+}
+
+.jfx-tab-pane > .depth-container > .tab-header-area > .tab-header-background {
+    -fx-background-color: pink;
+}

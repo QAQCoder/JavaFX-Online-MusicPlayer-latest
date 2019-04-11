@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXMasonryPane?>
+<?import com.jfoenix.controls.JFXSpinner?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="400.0" prefWidth="700.0" stylesheets="@../../css/singer_view_css.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SingerViewController">
+    <VBox fx:id="vbox" alignment="TOP_CENTER" layoutX="14.0" layoutY="14.0" prefWidth="110.0" spacing="15.0" style="-fx-border-color: #3886b4; -fx-border-width: 3; -fx-border-radius: 5; -fx-padding: 15 0 0 0;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+      <JFXButton fx:id="btnRefresh" layoutX="25.0" layoutY="18.0" prefWidth="80.0" text="刷新" textAlignment="CENTER" />
+    </VBox>
+    <JFXMasonryPane fx:id="jfxMasonryPaneAZ" cellHeight="10.0" cellWidth="12.0" layoutX="153.0" layoutY="80.0" prefHeight="50.0" style="-fx-border-color: #3886b4; -fx-border-width: 3; -fx-border-radius: 3;" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+        <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+        </padding>
+    </JFXMasonryPane>
+    <ScrollPane fx:id="scrollPane" prefHeight="200.0" prefWidth="200.0" style="-fx-border-radius: 5; -fx-border-color: #3886b4; -fx-border-width: 2; -fx-background-color: transparent; -fx-background-radius: 5;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="80.0">
+        <JFXMasonryPane fx:id="jfxMasonryPaneDetail" HSpacing="10.0" VSpacing="10.0" cellHeight="150.0" cellWidth="150.0" prefHeight="200.0" prefWidth="200.0">
+         <padding>
+            <Insets bottom="5.0" left="30.0" right="5.0" top="10.0" />
+         </padding>
+        </JFXMasonryPane>
+      <padding>
+         <Insets left="5.0" top="5.0" />
+      </padding>
+    </ScrollPane>
+   <JFXSpinner fx:id="jfxSpinner" layoutX="224.0" layoutY="79.0" prefHeight="50.0" prefWidth="50.0" radius="10.0" visible="false" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="200.0" />
+</AnchorPane>

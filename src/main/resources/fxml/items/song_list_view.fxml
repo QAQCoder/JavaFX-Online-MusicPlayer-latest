@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--  歌单view -->
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXMasonryPane?>
+<?import com.jfoenix.controls.JFXSpinner?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane fx:id="stackPane" stylesheets="@../../css/song_list_css.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SongListController">
+    <AnchorPane prefHeight="400.0" prefWidth="600.0">
+        <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="-36.0" prefHeight="35.0" style="-fx-border-color: #3886b4; -fx-border-width: 3; -fx-border-radius: 5;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="当前歌单：">
+                <font>
+                    <Font size="17.0" />
+                </font>
+            </Text>
+         <Text fx:id="textCurrSongListClassifyName" strokeType="OUTSIDE" strokeWidth="0.0" text="无" HBox.hgrow="ALWAYS">
+            <font>
+               <Font size="13.0" />
+            </font>
+         </Text>
+            <JFXSpinner fx:id="jfxSpinner" radius="10.0" visible="false" HBox.hgrow="NEVER">
+                <HBox.margin>
+                    <Insets left="10.0" />
+                </HBox.margin>
+            </JFXSpinner>
+            <Region HBox.hgrow="ALWAYS" />
+            <JFXButton fx:id="btnSelectClassify" style="-fx-border-color: gray; -fx-border-radius: 3;" text="选择分类" />
+            <JFXButton fx:id="btnRefresh" layoutX="531.0" layoutY="15.0" style="-fx-border-color: gray; -fx-border-radius: 3;" text="刷新">
+                <HBox.margin>
+                    <Insets left="10.0" />
+                </HBox.margin>
+            </JFXButton>
+        </HBox>
+
+        <ScrollPane fx:id="scrollPane" style="-fx-border-color: #3886b4; -fx-border-width: 5; -fx-border-radius: 5; -fx-background-color: #b7b7b7; -fx-background-radius: 8;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="55.0">
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <JFXMasonryPane fx:id="jfxMasonryPane" HSpacing="10.0" VSpacing="10.0" cellHeight="50.0">
+                <padding>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                </padding>
+            </JFXMasonryPane>
+        </ScrollPane>
+    </AnchorPane>
+</StackPane>

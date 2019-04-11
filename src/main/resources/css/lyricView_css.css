@@ -1,0 +1,46 @@
+
+.list-view {
+    -fx-background-color: transparent;
+}
+
+.list-cell {
+    -fx-background-color: transparent;
+    -fx-font-size: 13;
+    -fx-font-family: "Microsoft YaHei UI";
+    -fx-alignment: center;
+}
+
+.list-view .scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.list-view .list-cell:selected {
+    -fx-background-color: #4892cc;
+    -fx-background-radius: 5;
+    -fx-text-fill: #f9fdff;
+    -fx-font-size: 16;
+    -fx-alignment: center;
+}
+
+/*-----------------------------------*/
+.list-view > .virtual-flow > .scroll-bar {
+    -fx-background-color:transparent;
+}
+.list-view > .virtual-flow > .scroll-bar > .track {
+    -fx-background-color:transparent;
+}
+.list-view > .virtual-flow > .scroll-bar> .thumb {
+    -fx-background-color:#4691c8;
+    -fx-opacity: 0.5;
+}
+.list-view > .virtual-flow > .scroll-bar > .thumb:hover {
+    -fx-background-color:#4691c8;
+    -fx-opacity: 0.8;
+}
+.list-view > .virtual-flow > .scroll-bar> .thumb:selected {
+    -fx-background-color:transparent;
+    -fx-opacity: 1.0;
+}
+.list-view > .virtual-flow > .corner {
+    -fx-background-color:transparent;
+}

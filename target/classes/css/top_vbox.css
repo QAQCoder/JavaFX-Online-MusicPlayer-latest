@@ -1,0 +1,25 @@
+
+.vbox {
+    -fx-background-color: #3d6e9a;
+    -fx-border-color: #b7b7b7;
+    -fx-border-width: 0 0 0.5 0;
+}
+
+.header-button {
+    -fx-background-color: gray;
+    -fx-background-radius: 40;
+    -fx-border-radius: 40;
+    -fx-pref-width: 40;
+    -fx-pref-height: 40;
+    -fx-font-size: 10;
+}
+
+.text {
+    -fx-fill: #E5ECF6;
+}
+
+.setting-btn {
+    -fx-background-color: transparent;
+    -fx-pref-width: 40;
+    -fx-pref-height: 52;
+}

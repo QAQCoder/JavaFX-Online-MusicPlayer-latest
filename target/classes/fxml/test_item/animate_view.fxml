@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test.TestAnimateFX">
+    <bottom>
+        <HBox>
+            <Button fx:id="btnOpen" mnemonicParsing="false" text="打开"/>
+            <Button fx:id="btnClose" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="关闭"/>
+        </HBox>
+    </bottom>
+    <center>
+        <SplitPane fx:id="sp" dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <AnchorPane fx:id="pane1" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0"
+                        style="-fx-background-color: #b7b7b7;"/>
+            <!--<fx:include fx:id="pane2" source="test_dialog_view.fxml"/>-->
+        </SplitPane>
+    </center>
+</BorderPane>

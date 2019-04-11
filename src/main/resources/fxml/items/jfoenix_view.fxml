@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXSpinner?>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="test.TestJFoenix">
+    <JFXSpinner fx:id="sp" layoutX="275.0" layoutY="150.0" visible="false"/>
+    <JFXButton text="计算一波" fx:id="btnNet" layoutX="273.0" layoutY="304.0"/>
+</AnchorPane>
