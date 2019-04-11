@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="971cf7a2-a975-4e56-8cf3-aedd2fe33f34" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/README.MD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/MyDbUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/MyDbUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/QAQCoder-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/QAQCoder-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/database/MyDbUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/database/MyDbUtils.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -128,7 +129,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="2" />
+          <entry key="JAVA" value="3" />
           <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="UML" value="1" />
@@ -147,7 +148,21 @@
     <favorites_list name="WebDemo-MusicDemo" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/database/MyDbUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="44">
+              <caret line="33" column="69" lean-forward="true" selection-start-line="33" selection-start-column="69" selection-end-line="33" selection-end-column="69" />
+              <folding>
+                <element signature="e#443#444#0" expanded="true" />
+                <element signature="e#488#489#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -277,8 +292,8 @@
         <option value="$PROJECT_DIR$/src/main/java/test/TestOther.java" />
         <option value="$PROJECT_DIR$/src/test/java/otherTest/FontTest.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/database/MyDbUtils.java" />
         <option value="$PROJECT_DIR$/.idea/compiler.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/database/MyDbUtils.java" />
       </list>
     </option>
   </component>
@@ -424,7 +439,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/A_Projects/IDEA_projects/FX-MusicDemo/src/main/java/view/CommonView.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554977282931" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554977479403" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -695,7 +710,7 @@
       <workItem from="1554950065061" duration="5428000" />
       <workItem from="1554968453482" duration="3439000" />
       <workItem from="1554972960165" duration="1255000" />
-      <workItem from="1554976195343" duration="1281000" />
+      <workItem from="1554976195343" duration="1530000" />
     </task>
     <task id="LOCAL-00001" summary="船新版本">
       <created>1543381539884</created>
@@ -740,7 +755,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1093679000" />
+    <option name="totallyTimeSpent" value="1093928000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -763,13 +778,13 @@
       <window_info id="Favorites" order="6" sideWeight="0.85714287" side_tool="true" weight="0.23524962" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.5697479" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.7390318" visible="true" weight="0.6907563" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.73827535" visible="true" weight="0.6907563" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.47394958" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.0302521" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.5847504" weight="0.2302521" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.26096824" side_tool="true" weight="0.3092437" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.26172465" side_tool="true" weight="0.6907563" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" weight="0.78487396" />
       <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.4969743" weight="0.2621849" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
@@ -783,7 +798,7 @@
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Maven" order="7" weight="0.32965213" />
-      <window_info anchor="right" id="Maven Projects" order="8" visible="true" weight="0.22087745" />
+      <window_info active="true" anchor="right" id="Maven Projects" order="8" visible="true" weight="0.20877458" />
       <window_info anchor="right" id="Database" order="9" weight="0.013615734" />
       <window_info anchor="right" id="Coverage" order="10" side_tool="true" weight="0.32980332" />
       <window_info anchor="right" id="Bean Validation" order="11" weight="0.3290469" />
@@ -1138,17 +1153,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/database/MyDbUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="33" column="68" selection-start-line="33" selection-start-column="68" selection-end-line="33" selection-end-column="68" />
-          <folding>
-            <element signature="e#443#444#0" expanded="true" />
-            <element signature="e#488#489#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/test_item/animate_view.fxml">
       <provider selected="true" editor-type-id="text-editor" />
       <provider editor-type-id="JavaFX-Scene-Builder" />
@@ -1203,6 +1207,17 @@
         <state split_layout="SPLIT">
           <first_editor />
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/database/MyDbUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="33" column="69" lean-forward="true" selection-start-line="33" selection-start-column="69" selection-end-line="33" selection-end-column="69" />
+          <folding>
+            <element signature="e#443#444#0" expanded="true" />
+            <element signature="e#488#489#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

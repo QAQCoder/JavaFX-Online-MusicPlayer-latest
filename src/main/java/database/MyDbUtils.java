@@ -29,8 +29,8 @@ public class MyDbUtils {
             synchronized (MyDbUtils.class) {
                 if (conn  == null) {
                     try {
-                        conn = DriverManager.getConnection("jdbc:sqlite:src/main/resources/db/music.db");
-//                        conn = DriverManager.getConnection("jdbc:sqlite:db/music.db");
+//                        conn = DriverManager.getConnection("jdbc:sqlite:src/main/resources/db/music.db");
+                        conn = DriverManager.getConnection("jdbc:sqlite:db/music.db");
                     } catch (SQLException e) { e.printStackTrace(); }
                 }
             }
