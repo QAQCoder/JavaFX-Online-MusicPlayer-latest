@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="971cf7a2-a975-4e56-8cf3-aedd2fe33f34" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/RankMusicViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/RankMusicViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/NewSongCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/NewSongCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/music.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/music.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/QAQCoder-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/QAQCoder-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/RankMusicViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/RankMusicViewController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/db/music.db" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/db/music.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/NewSongCell.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/NewSongCell.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runAppHere/QAQCoder-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runAppHere/db/music.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runAppHere/db/music.db-journal" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runAppHere/run.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/db/music.db-journal" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -158,7 +155,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/database/MyDbUtils.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="206">
-              <caret line="33" column="69" lean-forward="true" selection-start-line="33" selection-start-column="69" selection-end-line="33" selection-end-column="69" />
+              <caret line="33" column="69" selection-start-line="33" selection-start-column="69" selection-end-line="33" selection-end-column="69" />
               <folding>
                 <element signature="e#443#444#0" expanded="true" />
                 <element signature="e#488#489#0" expanded="true" />
@@ -501,7 +498,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/A_Projects/IDEA_projects/FX-MusicDemo/src/main/java/view/CommonView.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554979188821" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554980827046" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -772,7 +769,7 @@
       <workItem from="1554950065061" duration="5428000" />
       <workItem from="1554968453482" duration="3439000" />
       <workItem from="1554972960165" duration="1255000" />
-      <workItem from="1554976195343" duration="3189000" />
+      <workItem from="1554976195343" duration="3723000" />
     </task>
     <task id="LOCAL-00001" summary="船新版本">
       <created>1543381539884</created>
@@ -817,7 +814,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1095587000" />
+    <option name="totallyTimeSpent" value="1096121000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -860,7 +857,7 @@
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Maven" order="7" weight="0.32965213" />
-      <window_info anchor="right" id="Maven Projects" order="8" visible="true" weight="0.20877458" />
+      <window_info anchor="right" id="Maven Projects" order="8" weight="0.20877458" />
       <window_info anchor="right" id="Database" order="9" weight="0.013615734" />
       <window_info anchor="right" id="Coverage" order="10" side_tool="true" weight="0.32980332" />
       <window_info anchor="right" id="Bean Validation" order="11" weight="0.3290469" />
@@ -1288,7 +1285,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/database/MyDbUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="206">
-          <caret line="33" column="69" lean-forward="true" selection-start-line="33" selection-start-column="69" selection-end-line="33" selection-end-column="69" />
+          <caret line="33" column="69" selection-start-line="33" selection-start-column="69" selection-end-line="33" selection-end-column="69" />
           <folding>
             <element signature="e#443#444#0" expanded="true" />
             <element signature="e#488#489#0" expanded="true" />
