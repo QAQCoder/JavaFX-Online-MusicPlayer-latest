@@ -36,6 +36,6 @@
          </font>
       </Text>
       <JFXButton fx:id="btnFullScreen" layoutX="432.0" layoutY="151.0" style="-fx-background-color: pink;" text="   全屏   " AnchorPane.rightAnchor="30.0" />
-      <JFXTextArea editable="false" labelFloat="true" layoutX="84.0" layoutY="248.0" prefHeight="112.0" prefWidth="415.0" text="开发者：QAQCoder                 开发背景：毕业设计&#10;&#10;Github：https://github.com/QAQCoder/JavaFX-Online-MusicPlayer&#10;&#10;Email: QAQCoder@qq.com" unFocusColor="WHITE" />
+      <JFXTextArea editable="false" labelFloat="true" layoutX="82.0" layoutY="247.0" prefHeight="112.0" prefWidth="425.0" text="开发者：QAQCoder                 开发背景：毕业设计&#10;&#10;在线音乐来自酷狗音乐&#10;&#10;GitHub地址：https://github.com/QAQCoder/JavaFX-Online-MusicPlayer&#10;&#10;Email: QAQCoder@qq.com" unFocusColor="WHITE" />
    </children>
 </AnchorPane>

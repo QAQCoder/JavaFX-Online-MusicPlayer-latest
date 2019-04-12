@@ -21,13 +21,12 @@ public abstract class BaseStage extends Stage {
 
     public BaseStage(String fxml) {
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/main_view.fxml"));
-//        Parent root = LoadUtil.loadFXML(fxml);
         Parent root = null;
         try {
             root = loader.load();
             setScene(new Scene(root, 1000, 700));
             centerOnScreen();
-            setTitle("河狸星的MusicPlayer");
+            setTitle("JavaFX在线音乐播放器");
             Image image = new Image("icon/音乐-2.png", 50, 50, true, true);
             getIcons().add(image);
 
