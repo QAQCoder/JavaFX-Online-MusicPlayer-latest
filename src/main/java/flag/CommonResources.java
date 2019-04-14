@@ -61,6 +61,9 @@ public class CommonResources {
     //当前选择的音乐bean
     public static KuGouMusicPlay.DataBean currMusicBean = null;
 
+    //
+    public static double currVolume = 0.5;
+
     private static final ImageView image = new ImageView();
     public static ImageView getNode() {
         image.setFitHeight(0);

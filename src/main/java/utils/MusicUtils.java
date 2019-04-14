@@ -3,20 +3,16 @@ package utils;
 import controller.BottomController;
 import controller.LyricController;
 import entity.KuGouMusicPlay;
+import flag.CommonResources;
 import flag.MusicResources;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ChangeListener;
-import javafx.concurrent.Service;
-import javafx.concurrent.Task;
 import javafx.scene.control.Button;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 import listener.MyPlayerChangeListener;
-
-import java.util.Objects;
-import java.util.concurrent.CompletableFuture;
 
 import static flag.CommonResources.IMAGE_PAUSE;
 import static flag.CommonResources.IMAGE_PLAYING;
@@ -84,6 +80,7 @@ public class MusicUtils implements IMusic {
         this.startListener();
         mediaPlayer.setOnReady(() -> {
             System.out.println("mediaPlayer.setOnReady");
+            mediaPlayer.setVolume(CommonResources.currVolume);
         });
     }
 
@@ -202,12 +199,15 @@ public class MusicUtils implements IMusic {
         if (volume >= 1.0) {
             mediaPlayer.setVolume(1.0);
             currVolume = 1.0;
+            CommonResources.currVolume = 1.0;
         } else if (volume <= 0.0) {
             mediaPlayer.setVolume(0.0);
             currVolume = 0.0;
+            CommonResources.currVolume = 0.0;
         } else {
             mediaPlayer.setVolume(volume);
             currVolume = volume;
+            CommonResources.currVolume = volume;
         }
     }
 
