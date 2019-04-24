@@ -27,10 +27,10 @@ public class TestStage extends Application {
 //        root.setCenter(LoadUtil.loadFXML("fxml/items/singer_view.fxml"));
 //        root.setCenter(LoadUtil.loadFXML("fxml/items/song_list_view.fxml"));
 //        root.setCenter(LoadUtil.loadFXML("fxml/main_view.fxml"));
-//        root.setCenter(LoadUtil.loadFXML("fxml/items/lyric_view.fxml"));
+        root.setCenter(LoadUtil.loadFXML("fxml/items/lyric_view.fxml"));
 //        root.setCenter(LoadUtil.loadFXML("fxml/main_view.fxml"));
 //        root.setCenter(LoadUtil.loadFXML("fxml/items/left_view.fxml"));
-        root.setCenter(LoadUtil.loadFXML("fxml/items/bottom_view.fxml"));
+//        root.setCenter(LoadUtil.loadFXML("fxml/items/bottom_view.fxml"));
 //        root.setCenter(LoadUtil.loadFXML("fxml/items/setting_view.fxml"));
 //        root.setCenter(LoadUtil.loadFXML("fxml/test_item/test_progress_view.fxml"));
         initScene();

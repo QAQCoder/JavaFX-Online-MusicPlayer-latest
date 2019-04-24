@@ -135,7 +135,7 @@ public class BottomController extends BaseController implements Initializable {
         btnNext.setOnAction(ae -> MusicResources.getInstance().nextSong());
 
         btnDownload.setOnMouseClicked(me -> {
-            QuickUtils.showAlert("",  selectItem.getAuthor_name() +" - " + selectItem.getSong_name() + "\n" + selectItem.getPlay_url());
+            QuickUtils.showJFXDialog((StackPane) btnDownload.getScene().getRoot(),  "下载信息", selectItem.getAudio_name(), selectItem.getPlay_url());
         });
 
         //如果slider的value改变，在拖动的时候，那么就要给用户显示拖动到哪里了

@@ -15,16 +15,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Callback;
 import javafx.util.Duration;
 import org.controlsfx.control.PopOver;
 import utils.LoadUtil;
 
+import java.math.BigDecimal;
 import java.net.URL;
 import java.util.*;
 
@@ -57,11 +55,30 @@ public class LyricController extends BaseController implements Initializable {
 
     private void initEvent() {
         btnSetLyricTime.setOnMouseClicked(me -> {
-            PopOver popOver = new PopOver();
             TextField tf = new TextField("1000");
+            tf.setPrefWidth(50);
             tf.textProperty().addListener((observable, oldValue, newValue) -> delayTimeProperty.set(Integer.parseInt(newValue)));
-            popOver.setContentNode(tf);
-            popOver.show(btnSetLyricTime.getScene().getWindow(), me.getScreenX(), me.getScreenY());
+
+            MenuItem item1 = new MenuItem("歌词调整", tf);
+            MenuItem item2 = new MenuItem("歌词铺满");
+            ContextMenu menu = new ContextMenu(item1, item2);
+            item2.setOnAction(ae ->{
+                if (mvc.centerPaneList.size() == 2) {
+                    BigDecimal decimal = new BigDecimal(mvc.splitPane.getDividerPositions()[0]);
+
+                    switch (decimal.compareTo(new BigDecimal(0.05))) {
+                        case -1:
+                            System.out.println(Arrays.toString(mvc.splitPane.getDividerPositions()));
+                            mvc.splitPane.setDividerPositions(Flags.LYRIC_PANE_DIVISION);
+                            break;
+                        case 1:
+                            System.out.println(Arrays.toString(mvc.splitPane.getDividerPositions()));
+                            mvc.splitPane.setDividerPositions(0.0);
+                            break;
+                    }
+                }
+            });
+            menu.show(btnSetLyricTime.getScene().getWindow(), me.getScreenX()-100, me.getScreenY()+25);
         });
 
         btnBackG.setOnAction(ae -> {
@@ -166,6 +183,7 @@ public class LyricController extends BaseController implements Initializable {
         if (IS_LYRIC_VISIBLE.get()) {
             new BounceOutRight(Flags.lyricPane).setResetOnFinished(true).play();
             currPosition = mvc.splitPane.getDividerPositions()[0];
+            Flags.LYRIC_PANE_DIVISION = currPosition;
             mvc.centerPaneList.remove(Flags.lyricPane);
             IS_LYRIC_VISIBLE.setValue(false);
         } else {

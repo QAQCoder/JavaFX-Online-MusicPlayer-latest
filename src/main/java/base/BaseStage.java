@@ -49,5 +49,4 @@ public abstract class BaseStage extends Stage {
             }
         });
     }
-
 }

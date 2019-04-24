@@ -123,9 +123,7 @@ public class MainViewController extends BaseController implements Initializable 
             }
         });
 
-        /*splitPane.getDividers().get(0).positionProperty().addListener((observable, oldValue, newValue) -> {
-            Flags.LYRIC_PANE_DIVISION = newValue.doubleValue();
-        });*/
+//        splitPane.getDividers().get(0).positionProperty().addListener((observable, oldValue, newValue) -> Flags.LYRIC_PANE_DIVISION = newValue.doubleValue());
     }//initEvent
 
     private void searchMusic() {

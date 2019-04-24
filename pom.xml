@@ -87,12 +87,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!--<dependency>
-            <groupId>com.jfoenix</groupId>
-            <artifactId>jfoenix</artifactId>
-            <version>8.0.8</version>
-        </dependency>-->
-
         <!-- https://mvnrepository.com/artifact/com.jfoenix/jfoenix -->
         <dependency>
             <groupId>com.jfoenix</groupId>
@@ -141,7 +135,7 @@
             <version>1.11.3</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org/jaudiotagger -->
+        <!-- 解析音乐mp3的类库 https://mvnrepository.com/artifact/org/jaudiotagger -->
         <dependency>
             <groupId>org</groupId>
             <artifactId>jaudiotagger</artifactId>
@@ -154,5 +148,19 @@
             <artifactId>AnimateFX</artifactId>
             <version>1.2.1</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/de.jensd/fontawesomefx -->
+        <dependency>
+            <groupId>de.jensd</groupId>
+            <artifactId>fontawesomefx</artifactId>
+            <version>8.9</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/de.jensd/fontawesomefx-materialdesignfont -->
+        <dependency>
+            <groupId>de.jensd</groupId>
+            <artifactId>fontawesomefx-materialdesignfont</artifactId>
+            <version>2.0.26-9.1.2</version>
+        </dependency>
+
     </dependencies>
 </project>

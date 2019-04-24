@@ -1,22 +1,28 @@
 package utils;
 
+import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXDialogLayout;
 import flag.CommonResources;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
-import javafx.application.Platform;
 import javafx.beans.value.WritableValue;
 import javafx.scene.Node;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
 
+import java.util.Arrays;
+
 public class QuickUtils {
 
-    private static Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-    private static TextArea textArea = new TextArea();
+    private static JFXDialogLayout dialogLayout = null;
+    private static JFXDialog dialog = null;
+    private static VBox vBox;
 
     public static void showNotification(String title, String content, Node graphic) {
         Notifications.create().title(title).text(content).graphic(graphic).showInformation();
@@ -28,11 +34,18 @@ public class QuickUtils {
         new Timeline(kf).play();
     }
 
-    public static void showAlert(String title, String content) {
-        alert.setGraphic(textArea);
-        textArea.clear();
-        textArea.appendText(content);
-        alert.setTitle(title);
-        alert.showAndWait();
+    public static void showJFXDialog(StackPane container, String title, String...contents) {
+
+        if (dialogLayout == null) {
+            dialogLayout = new JFXDialogLayout();
+            dialog = new JFXDialog();
+            vBox = new VBox(20);
+        }
+        dialogLayout.setHeading(new Text(title));
+        Arrays.stream(contents).forEach(item -> vBox.getChildren().add(new TextField(item)));
+        dialogLayout.setBody(vBox);
+        dialog.setContent(dialogLayout);
+        dialog.setOnDialogClosed(event -> vBox.getChildren().clear());
+        dialog.show(container);
     }
 }

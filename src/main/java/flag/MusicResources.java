@@ -73,7 +73,8 @@ public class MusicResources {
         if (getCurrSelectIndex() == 0 && c <= 0)    //开头
             this.currSelectIndexProperty.set(0);
         else if (getCurrSelectIndex() == getCurrMusicList().size()-1 && c > getCurrSelectIndex())   //结尾
-            this.currSelectIndexProperty.set(getCurrMusicList().size()-1);
+            System.out.println("最后一首了，下一曲无用");
+            //            this.currSelectIndexProperty.set(getCurrMusicList().size()-1);
         else
             this.currSelectIndexProperty.set(c);    //正常
     }//

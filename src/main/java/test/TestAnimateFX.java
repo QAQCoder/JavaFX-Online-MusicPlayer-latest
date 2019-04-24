@@ -2,7 +2,6 @@ package test;
 
 import animatefx.animation.ZoomInRight;
 import animatefx.animation.ZoomOutRight;
-import javafx.animation.PathTransition;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -12,10 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.SplitPane;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.shape.MoveTo;
-import javafx.scene.shape.Path;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 import utils.LoadUtil;
 
 import java.net.URL;
