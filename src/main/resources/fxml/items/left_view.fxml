@@ -3,6 +3,8 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import de.jensd.fx.glyphs.octicons.OctIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Tab?>
@@ -41,9 +43,7 @@
                     </JFXTextField>
                     <JFXButton fx:id="jfxBtnSearch" layoutX="10.0" layoutY="10.0" text="">
                         <graphic>
-                            <ImageView fitHeight="15.0" fitWidth="15.0">
-                                <Image url="@../../icon/search_icon.png" />
-                            </ImageView>
+                            <OctIconView glyphName="SEARCH" opacity="0.7" size="1.2em" />
                         </graphic>
                         <padding>
                             <Insets bottom="2.0" left="-20.0" />
@@ -51,9 +51,7 @@
                     </JFXButton>
                     <JFXButton fx:id="jfxBtnAddAlbumList" text="">
                         <graphic>
-                            <ImageView fitHeight="15.0" fitWidth="15.0" opacity="0.74">
-                                <Image url="@../../icon/add_icon.png" />
-                            </ImageView>
+                            <MaterialDesignIconView glyphName="PLUS" size="1.4em" />
                         </graphic>
                         <HBox.margin>
                             <Insets bottom="2.0" left="8.0" />
@@ -61,10 +59,11 @@
                     </JFXButton>
                     <JFXButton fx:id="jfxBtnRefresh" layoutX="241.0" layoutY="18.0" text="">
                         <graphic>
-                            <ImageView fitHeight="15.0" fitWidth="15.0">
-                                <Image url="@../../icon/music_control/刷新-2.png" />
-                            </ImageView>
+                            <MaterialDesignIconView glyphName="REFRESH" opacity="0.73" size="1.4em" />
                         </graphic>
+                  <HBox.margin>
+                     <Insets />
+                  </HBox.margin>
                     </JFXButton>
                 </HBox>
                 <Accordion fx:id="accordion" VBox.vgrow="ALWAYS">
