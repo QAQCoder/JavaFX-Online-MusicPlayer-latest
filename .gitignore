@@ -2,3 +2,4 @@
 #不提交哪些文件
 /target/
 /src/main/java/test/
+/META-INF/
