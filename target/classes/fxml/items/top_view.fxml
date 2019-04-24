@@ -3,6 +3,8 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXSpinner?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
@@ -15,42 +17,33 @@
 
 <VBox fx:id="vBoxToDrag" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox fx:id="hBoxForDoubleClick" alignment="CENTER_LEFT" styleClass="root" stylesheets="@../../css/top_control_css.css">
+      <HBox fx:id="hBoxForDoubleClick" alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="827.0" styleClass="root" stylesheets="@../../css/top_control_css.css">
          <children>
-            <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../icon/音乐-2.png" />
                </image>
                <HBox.margin>
-                  <Insets bottom="1.0" left="2.0" right="1.0" top="1.0" />
+                  <Insets bottom="0.2" left="2.0" right="1.0" top="0.2" />
                </HBox.margin></ImageView>
              <Text fill="#ffffff" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="随心听-音乐播放器">
                <font>
                   <Font name="Microsoft YaHei Light" size="13.0" />
                </font></Text>
-            <Region HBox.hgrow="ALWAYS" />
-            <JFXButton fx:id="btnMin" mnemonicParsing="false" styleClass="ControlBtn" text="">
-               <HBox.margin>
-                  <Insets right="5.0" />
-               </HBox.margin>
-                <graphic>
-                    <ImageView fitHeight="20" fitWidth="20">
-                        <Image url="@../../icon/music_control/最小化.png" />
-                    </ImageView>
-                </graphic>
-            </JFXButton>
-            <JFXButton fx:id="btnClose" layoutX="89.0" layoutY="11.0" mnemonicParsing="false" styleClass="ControlBtn" text="">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-                <graphic>
-                    <ImageView fitHeight="20" fitWidth="20">
-                        <Image url="@../../icon/music_control/关闭.png" />
-                    </ImageView>
-                </graphic>
-            </JFXButton>
-         </children></HBox>
-      <HBox styleClass="vbox" stylesheets="@../../css/top_vbox.css">
+            <Region prefHeight="14.0" prefWidth="615.0" HBox.hgrow="ALWAYS" />
+             <JFXButton fx:id="btnMin" mnemonicParsing="false" styleClass="minBtn" text="">
+                 <graphic>
+                     <MaterialDesignIconView fill="WHITE" glyphName="MINUS" size="1em" />
+                 </graphic>
+             </JFXButton>
+             <JFXButton fx:id="btnClose" layoutX="20.0" layoutY="20.0" mnemonicParsing="false" styleClass="closeBtn" text="">
+                 <graphic>
+                     <MaterialDesignIconView fill="WHITE" glyphName="WINDOW_CLOSE" size="1em" />
+                 </graphic>
+             </JFXButton>
+         </children>
+      </HBox>
+      <HBox prefHeight="42.0" prefWidth="827.0" styleClass="hbox" stylesheets="@../../css/top_vbox.css">
          <children>
             <Button disable="true" mnemonicParsing="false" prefHeight="52.0" prefWidth="40.0" style="-fx-background-color: transparent;" text="" visible="false" HBox.hgrow="NEVER" />
              <JFXButton fx:id="btnUser" mnemonicParsing="false" prefHeight="50" prefWidth="50" styleClass="header-button" text="Lollipop" visible="false">
@@ -73,17 +66,17 @@
                      <Insets right="10.0" />
                  </HBox.margin>
              </JFXSpinner>
-             <JFXTextField fx:id="tfSearchKeyword" alignment="CENTER" focusColor="#5b8f8d00" labelFloat="true" layoutY="-1.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #ffffff; -fx-border-radius: 20 0 0 20; -fx-background-radius: 20 0 0 20; -fx-fill: black;" text="林俊杰" unFocusColor="#ffffff00">
+             <JFXTextField fx:id="tfSearchKeyword" alignment="CENTER" focusColor="#5b8f8d00" labelFloat="true" layoutY="-1.0" prefHeight="25.0" prefWidth="250.0" style="-fx-background-color: #e5e5e5; -fx-border-radius: 20 0 0 20; -fx-background-radius: 20 0 0 20; -fx-fill: black;" text="林俊杰" unFocusColor="#ffffff00">
                  <font>
                      <Font name="Microsoft YaHei" size="15.0" />
                  </font>
                  <HBox.margin>
-                     <Insets top="10.0" />
+                     <Insets top="5.5" />
                  </HBox.margin>
              </JFXTextField>
-             <JFXButton fx:id="btnSearch" layoutX="218.0" layoutY="-1.0" prefHeight="30.0" prefWidth="45.0" style="-fx-background-radius: 0 20 20 0; -fx-border-color: white; -fx-border-width: 1 1 1 0; -fx-border-radius: 0 20 20 0;" text="Go" textFill="#b90606">
+             <JFXButton fx:id="btnSearch" layoutX="218.0" layoutY="-1.0" prefHeight="30.0" prefWidth="45.0" style="-fx-border-color: white; -fx-border-width: 0.5 0.5 0.5 0; -fx-border-radius: 0 20 20 0;" text="Go" textFill="#b90606">
                  <HBox.margin>
-                     <Insets top="10.0" />
+                     <Insets top="5.5" />
                  </HBox.margin>
                  <font>
                      <Font name="Microsoft YaHei Bold" size="12.0" />
@@ -91,21 +84,18 @@
              </JFXButton>
             <Region layoutX="117.0" layoutY="10.0" prefHeight="50.0" prefWidth="163.0" HBox.hgrow="ALWAYS" />
             <JFXButton fx:id="btnSetting" mnemonicParsing="false" styleClass="setting-btn" text="" HBox.hgrow="NEVER">
-               <HBox.margin>
-                  <Insets left="5.0" right="-8.0" />
-               </HBox.margin>
                 <graphic>
-                    <ImageView fitHeight="20.0" fitWidth="20.0">
-                       <image>
-                           <Image url="@../../icon/settings.png" />
-                       </image>
-                    </ImageView>
+                    <FontAwesomeIconView fill="WHITE" glyphName="GEAR" opacity="0.48" size="1.5em" />
                 </graphic>
             </JFXButton>
-            <Button disable="true" mnemonicParsing="false" prefHeight="52.0" prefWidth="0.0" style="-fx-background-color: transparent;" text="" HBox.hgrow="NEVER">
+            <Button disable="true" ellipsisString="" graphicTextGap="2.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="0.0" style="-fx-background-color: transparent;" text="" HBox.hgrow="NEVER">
                <HBox.margin>
                   <Insets />
-               </HBox.margin></Button>
+               </HBox.margin>
+               <padding>
+                  <Insets right="5.0" />
+               </padding>
+            </Button>
          </children>
           <!--<fx:include source="top_min_max_view.fxml"/>-->
       </HBox>

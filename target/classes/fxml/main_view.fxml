@@ -2,12 +2,13 @@
 
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <StackPane fx:id="stackPane" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainViewController">
     <BorderPane fx:id="mainPane">
         <top>
             <VBox stylesheets="@../css/top_vbox.css">
-                <Pane prefHeight="0.1" style="-fx-background-color: transparent;" VBox.vgrow="NEVER" />
                 <fx:include fx:id="vBoxToDrag" source="items/top_view.fxml" />
             </VBox>
         </top>
