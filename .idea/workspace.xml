@@ -2,144 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="971cf7a2-a975-4e56-8cf3-aedd2fe33f34" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/node/SongListMember.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/preview/2019-05-30_131612.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/preview/2019-05-30_131645.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/preview/2019-05-30_131652.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/preview/2019-05-30_131706.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/preview/2019-05-30_131742.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runAppHere/QAQCoder-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/runAppHere/QAQCoder-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runAppHere/db/music.db" beforeDir="false" afterPath="$PROJECT_DIR$/runAppHere/db/music.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runAppHere/run.bat" beforeDir="false" afterPath="$PROJECT_DIR$/runAppHere/run.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/base/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/base/BaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/base/BaseStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/base/BaseStage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/base/CacheView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/base/CacheView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/BottomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/BottomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LeftController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LeftController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LyricController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LyricController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MusicTvController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MusicTvController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/RankMusicViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/RankMusicViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/SettingViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/SettingViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/SingerViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/SingerViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/SongListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/SongListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/database/DbServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/DbServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/database/IDbService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/IDbService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/database/MyDbUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/MyDbUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/database/TestDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/TestDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/BaseLyric.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/BaseLyric.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/CollectionAlbum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/CollectionAlbum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/KuGouMusic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/KuGouMusic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/KuGouMusicPlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/KuGouMusicPlay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Lyric.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Lyric.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/NewMusicList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/NewMusicList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/RankList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/RankList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/RankListContains.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/RankListContains.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/SearchData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/SearchData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/SingerClassify.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/SingerClassify.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/SingerList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/SingerList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/SingerListContains.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/SingerListContains.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/SongClassifyContains.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/SongClassifyContains.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/SongList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/SongList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/SongListClassify.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/SongListClassify.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/SongListContains.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/SongListContains.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/SongListEntityParent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/SongListEntityParent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/TableViewPlayInfoBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/TableViewPlayInfoBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/flag/CommonResources.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/flag/CommonResources.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/flag/Flags.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/flag/Flags.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/flag/FxmlFiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/flag/FxmlFiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/flag/MusicResources.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/flag/MusicResources.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/flag/MyEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/listener/MyPlayerChangeListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/listener/MyPlayerChangeListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/MainStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/MainStage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/ParseHTML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/ParseHTML.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/SurfTheNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/SurfTheNet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/node/AlbumMemberNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/node/AlbumMemberNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/node/MyButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/node/MyButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/node/MyImageView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/node/MyImageView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/node/MyTitlePane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/node/MyTitlePane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/node/SearchPopOver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/node/SearchPopOver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/node/SearchViewNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/node/SearchViewNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/node/TestAlbumNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/node/TestAlbumNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/node/TestNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/node/TestNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/IMusicService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/IMusicService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/MusicServiceImple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/MusicServiceImple.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/IMusic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/IMusic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/IOUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/IOUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/LoadUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/LoadUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/MusicUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/MusicUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/PlayerCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/PlayerCallback.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/PlayerListenerCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/PlayerListenerCallback.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/QuickUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/QuickUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/ScanLocalSong.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/ScanLocalSong.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/StringUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/StringUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/TimeUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/TimeUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/CommonView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/CommonView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/NewSongCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/NewSongCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/SingerCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/SingerCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/SongListCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/SongListCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/SongListClassifySelectView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/SongListClassifySelectView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/TestCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/TestCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/TestNewSongCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/TestNewSongCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/TestView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/TestView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/leftPane_css.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/leftPane_css.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/lyricView_css.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/lyricView_css.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/my_button_css.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/my_button_css.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/rank_view_css.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/rank_view_css.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/singer_view_css.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/singer_view_css.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/song_list_css.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/song_list_css.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/splitPane_css.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/splitPane_css.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/table_view_css.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/table_view_css.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/top_vbox.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/top_vbox.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/music.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/music.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/file/setting.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/file/setting.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/items/bottom_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/items/bottom_view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/items/left_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/items/left_view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/items/lyric_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/items/lyric_view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/items/music_table_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/items/music_table_view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/items/rank_music_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/items/rank_music_view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/items/setting_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/items/setting_view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/add_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/close.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/icon2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icon/icon2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/left_myList.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/left_myMusicFile.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/left_myNetList.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/login_backimage.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/min.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/music_control/pause_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/music_control/playing_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/music_control/下载.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/music_control/关闭.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/music_control/刷新-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/music_control/刷新.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/music_control/单曲-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/music_control/单曲.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/music_control/循环.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/music_control/收藏-五角星-white.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/music_control/最大化.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/music_control/最小化.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/music_control/歌词设置_54.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/music_control/随机.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/music_control/静音.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/search_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/search_music_icon_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icon/search_music_icon_2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/settings.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/volume.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/华语-ljj.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icon/华语-ljj.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/日本-timg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icon/日本-timg.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/欧美-taile.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icon/欧美-taile.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/韩国-icon.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icon/韩国-icon.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/player_icon/3_stop.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/player_icon/3_stop2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/player_icon/7_next2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/player_icon/9_previous2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/player_icon/LJJ-background.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/player_icon/volume.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/player_icon/圆圈10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/player_icon/圆圈2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/player_icon/圆圈4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/player_icon/圆圈6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/player_icon/圆圈8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.MD" beforeDir="false" afterPath="$PROJECT_DIR$/README.MD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/preview/2019-04-06_194326.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/preview/2019-04-11_202102.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/preview/2019-04-11_202149.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/preview/2019-04-11_202221.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/preview/2019-04-11_202256.jpg" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -179,11 +54,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="8" column="28" lean-forward="true" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+            <state relative-caret-position="162">
+              <caret line="8" column="33" lean-forward="true" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.MD">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="245">
+                <caret line="20" column="104" selection-start-line="20" selection-start-column="104" selection-end-line="20" selection-end-column="104" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -275,7 +162,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/entity/Lyric.java" />
         <option value="$USER_HOME$/Desktop/毕业设计/代码.java" />
         <option value="$PROJECT_DIR$/src/main/java/test/TestStage.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/SongListController.java" />
@@ -326,6 +212,7 @@
         <option value="$PROJECT_DIR$/src/main/java/database/MyDbUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/BottomController.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/README.MD" />
       </list>
     </option>
   </component>
@@ -421,163 +308,6 @@
               <item name="JavaFXOnlineMusicPlayer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="JavaFXOnlineMusicPlayer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JavaFXOnlineMusicPlayer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JavaFXOnlineMusicPlayer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JavaFXOnlineMusicPlayer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JavaFXOnlineMusicPlayer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JavaFXOnlineMusicPlayer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JavaFXOnlineMusicPlayer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JavaFXOnlineMusicPlayer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="base" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JavaFXOnlineMusicPlayer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JavaFXOnlineMusicPlayer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JavaFXOnlineMusicPlayer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JavaFXOnlineMusicPlayer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JavaFXOnlineMusicPlayer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JavaFXOnlineMusicPlayer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JavaFXOnlineMusicPlayer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JavaFXOnlineMusicPlayer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="flag" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JavaFXOnlineMusicPlayer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JavaFXOnlineMusicPlayer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="listener" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JavaFXOnlineMusicPlayer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JavaFXOnlineMusicPlayer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JavaFXOnlineMusicPlayer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JavaFXOnlineMusicPlayer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="net" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JavaFXOnlineMusicPlayer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JavaFXOnlineMusicPlayer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="node" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JavaFXOnlineMusicPlayer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JavaFXOnlineMusicPlayer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JavaFXOnlineMusicPlayer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JavaFXOnlineMusicPlayer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JavaFXOnlineMusicPlayer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JavaFXOnlineMusicPlayer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JavaFXOnlineMusicPlayer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JavaFXOnlineMusicPlayer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JavaFXOnlineMusicPlayer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JavaFXOnlineMusicPlayer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JavaFXOnlineMusicPlayer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JavaFXOnlineMusicPlayer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="db" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JavaFXOnlineMusicPlayer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JavaFXOnlineMusicPlayer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="fxml" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JavaFXOnlineMusicPlayer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JavaFXOnlineMusicPlayer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="fxml" type="462c0819:PsiDirectoryNode" />
-              <item name="items" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -588,7 +318,7 @@
     <property name="SearchEverywhereHistoryKey" value="pom.&#9;FILE&#9;file://D:/A_Projects/IDEA_projects/JavaFXOnlineMusicPlayer/pom.xml" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559192850622" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559193575518" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -618,11 +348,11 @@
       <recent name="entity" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\A_Projects\IDEA_projects\JavaFXOnlineMusicPlayer\preview" />
       <recent name="D:\A_Projects\IDEA_projects\JavaFXOnlineMusicPlayer\src\main\resources\css" />
       <recent name="D:\A_Projects\IDEA_projects\JavaFXOnlineMusicPlayer\src\main\resources\icon\music_control" />
       <recent name="D:\A_Projects\IDEA_projects\JavaFXOnlineMusicPlayer\src\main\resources\css\test_css" />
       <recent name="D:\A_Projects\IDEA_projects\JavaFXOnlineMusicPlayer\runAppHere" />
-      <recent name="D:\A_Projects\IDEA_projects\JavaFXOnlineMusicPlayer\preview" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -907,7 +637,7 @@
       <workItem from="1558698019118" duration="4436000" />
       <workItem from="1559009614427" duration="4396000" />
       <workItem from="1559116722810" duration="9126000" />
-      <workItem from="1559188468433" duration="3914000" />
+      <workItem from="1559188468433" duration="4497000" />
     </task>
     <task id="LOCAL-00001" summary="船新版本">
       <created>1543381539884</created>
@@ -952,7 +682,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1315070000" />
+    <option name="totallyTimeSpent" value="1315653000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -965,8 +695,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.13277312" visible="true" weight="0.23524962" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.13277312" visible="true" weight="0.23524962" />
       <window_info id="Structure" order="1" sideWeight="0.86577183" side_tool="true" weight="0.204236" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -981,7 +712,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.0302521" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.5847504" visible="true" weight="0.497479" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.5847504" visible="true" weight="0.4117647" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.2624811" side_tool="true" weight="0.38319328" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" weight="0.78487396" />
       <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.4969743" weight="0.2621849" />
@@ -1103,13 +834,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/SongListController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="31" selection-start-line="31" selection-end-line="35" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/base/BaseController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -1463,8 +1187,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="8" column="28" lean-forward="true" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+        <state relative-caret-position="162">
+          <caret line="8" column="33" lean-forward="true" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.MD">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="245">
+            <caret line="20" column="104" selection-start-line="20" selection-start-column="104" selection-end-line="20" selection-end-column="104" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
