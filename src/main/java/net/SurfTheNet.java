@@ -21,6 +21,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：
+ */
 public class SurfTheNet {
 
     //搜索音乐链接 0
@@ -83,7 +88,7 @@ public class SurfTheNet {
         List<KuGouMusic.DataBean.InfoBean> infoBeanList = kuGouMusic1.getData().getInfo();
         for (KuGouMusic.DataBean.InfoBean bean : infoBeanList)
             hashs.add(bean.getHash());
-        System.out.println("hashs: " + hashs.toString());
+//        System.out.println("hashs: " + hashs.toString());
 
         map.put("list", hashs);
         map.put("total", kuGouMusic1.getData().getTotal());
@@ -98,7 +103,7 @@ public class SurfTheNet {
      * @return
      */
     public static <T> T visitTheNetword(String urlLink, Class<T> tClass) {
-        StringBuilder json = null;
+        StringBuilder json = new StringBuilder();
         InputStream is = null;
         BufferedReader reader = null;
         HttpURLConnection httpURLConnection = null;
@@ -107,11 +112,12 @@ public class SurfTheNet {
         try {
             URL url = new URL(urlLink);
             httpURLConnection = (HttpURLConnection) url.openConnection();
+            httpURLConnection.setRequestProperty("Cookie", "kg_mid=1068981f3b494fcc89588921880d0e1");
             is = httpURLConnection.getInputStream();
             reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
             String temp = null;
             while ((temp = reader.readLine()) != null)
-                json = new StringBuilder(temp);
+                json.append(temp);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -122,8 +128,10 @@ public class SurfTheNet {
                 if (is != null) is.close();
             } catch (IOException e) { e.printStackTrace(); }
         }
-        if (json != null)
+        if (json != null) {
+//            System.out.println(json.toString());
             obj = gson.fromJson(json.toString(), tClass);
+        }
         return obj;
     }//visitTheNetword
 
@@ -144,11 +152,12 @@ public class SurfTheNet {
         HttpGet get = new HttpGet(url);
         //追加request headers 设置成手机浏览器
         get.addHeader("User-Agent", "Mozilla/5.0 (iPhone; U; CPU iPhone OS 5_1_1 like Mac OS X; en) AppleWebKit/534.46.0 (KHTML, like Gecko) CriOS/19.0.1084.60 Mobile/9B206 Safari/7534.48.3");
+        get.addHeader("Cookie", "kg_mid=1068981f3b494fcc89588921880d0e1");
         try {
             httpClient = HttpClients.createDefault();
             httpResponse = httpClient.execute(get);
             int statusCode = httpResponse.getStatusLine().getStatusCode();
-            System.out.println("状态码： " + statusCode);
+//            System.out.println("状态码： " + statusCode);
             if (statusCode == 200) {
                  responseMsg = EntityUtils.toString(httpResponse.getEntity(), "UTF-8");
             }
@@ -160,8 +169,10 @@ public class SurfTheNet {
                 if (httpResponse != null) httpResponse.close();
             } catch (IOException e) { e.printStackTrace(); }
         }
-        if (responseMsg != null)
+        if (responseMsg != null) {
+//            System.out.println(responseMsg);
             obj = gson.fromJson(responseMsg, fromJson);
+        }
         return obj;
     }
 

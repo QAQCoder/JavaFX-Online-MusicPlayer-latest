@@ -5,8 +5,14 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 import java.util.Properties;
 
+/**
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：
+ */
 public class StringUtils {
     /**
      * 替换花括号的内容为150
@@ -34,14 +40,16 @@ public class StringUtils {
         return str == null || "".equals(str);
     }
 
-    public static String readProperties() {
+    public static String[] readProperties() {
         Properties prop = new Properties();
         InputStreamReader reader = null;
         try {
 //            System.out.println(System.getProperty("user.dir"));
             reader = new InputStreamReader(StringUtils.class.getResourceAsStream("/file/setting.properties"), StandardCharsets.UTF_8);
             prop.load(reader);
-            return prop.get("scanPath").toString();
+            String scanPath = prop.get("scanPath").toString();
+            String alwaysOnTop = prop.get("alwaysOnTop").toString();
+            return new String[]{scanPath, alwaysOnTop};
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -54,14 +62,14 @@ public class StringUtils {
         return null;
     }
 
-    public static void writeProperties(String path) {
+    public static void writeProperties(String key, String content) {
         Properties prop = new Properties();
         InputStreamReader reader = null;
         try {
             reader = new InputStreamReader(StringUtils.class.getResourceAsStream("/file/setting.properties"), StandardCharsets.UTF_8);
             prop.load(reader);
-            prop.setProperty("scanPath", path);
-            System.out.println("音乐扫描路径更新完毕");
+            prop.setProperty(key, content);
+            System.out.println("设置项更新完毕");
         } catch (IOException e) {
             e.printStackTrace();
         } finally {

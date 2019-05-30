@@ -1,5 +1,9 @@
-
+﻿
 #不提交哪些文件
 /target/
 /src/main/java/test/
+/src/main/java/test_exception/
 /META-INF/
+/src/resources/db/music.db-journal/
+/src/resources/fxml/test_item/
+/src/resources/css/test_css/

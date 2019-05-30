@@ -7,12 +7,13 @@
 
 /*------------------*/
 .split-pane > .split-pane-divider {
-    -fx-background-color:gray;
-    -fx-scale-x:0.5;
+    -fx-background-color:#4192c2;
+    -fx-scale-y:1.0;
+    -fx-scale-x: 0.5;
+    -fx-padding: 0 0.1em 0 0.1em;
 }
 .split-pane > .split-pane-divider:hover {
-    -fx-background-color:pink;
-    -fx-scale-x:0.5;
+    -fx-background-color: #4192c2;
 }
 /*------------------*/
 

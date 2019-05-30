@@ -18,6 +18,11 @@ import org.controlsfx.control.Notifications;
 
 import java.util.Arrays;
 
+/**
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：
+ */
 public class QuickUtils {
 
     private static JFXDialogLayout dialogLayout = null;
@@ -43,6 +48,7 @@ public class QuickUtils {
         }
         dialogLayout.setHeading(new Text(title));
         Arrays.stream(contents).forEach(item -> vBox.getChildren().add(new TextField(item)));
+        vBox.getChildren().add(new Text("目前版本暂不提供下载支持，嘻嘻嘻~"));
         dialogLayout.setBody(vBox);
         dialog.setContent(dialogLayout);
         dialog.setOnDialogClosed(event -> vBox.getChildren().clear());

@@ -2,8 +2,11 @@ package entity;
 
 import java.io.Serializable;
 import java.util.List;
+
 /**
- * 排行榜信息
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：排行榜信息
  */
 public class RankList implements Serializable {
     /**

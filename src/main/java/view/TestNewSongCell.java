@@ -7,6 +7,11 @@ import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+/**
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：
+ */
 public class TestNewSongCell extends Application {
 
     public static void main(String[] args) {

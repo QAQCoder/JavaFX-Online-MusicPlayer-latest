@@ -11,10 +11,16 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import org.controlsfx.control.Notifications;
+import view.CommonView;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：
+ */
 public class MyTitlePane extends TitledPane {
 
     private MenuItem playAll = new MenuItem("播放全部");
@@ -35,6 +41,7 @@ public class MyTitlePane extends TitledPane {
         setOnMouseClicked(me -> {
             switch (me.getButton()) {
                 case SECONDARY:
+                    setFocused(true);
                     menu.show(this, me.getScreenX(), me.getScreenY());
                     break;
             }
@@ -74,6 +81,8 @@ public class MyTitlePane extends TitledPane {
                     Notifications.create().title("提示").text("删除收藏夹（" + album.getCollectionName() + "）成功").showInformation();
                     //这里不一样了，是要移除整个TitlePane，再修改一下
                     BaseController.BC_CONTEXT.get(LeftController.class.getName()).updateUi(this, 3);
+                    //bug-2019/04/29-这里删除收藏夹之后，没有通知CommonView，需要通知哦
+                    CommonView.notifyAlbumListUpdate();
                 }
             } else {
                 assert album != null;
@@ -96,6 +105,6 @@ public class MyTitlePane extends TitledPane {
             listView.getSelectionModel().select(index);
             listView.scrollTo(index > 3 ? index-2 : 0);
         };
-        musicResources.setSelectIndexCallback(currentSelectIndexCallback);
+        musicResources.addCallback(currentSelectIndexCallback);
     }
 }

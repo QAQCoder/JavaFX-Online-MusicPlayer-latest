@@ -6,13 +6,16 @@ import com.jfoenix.controls.JFXTabPane;
 import com.jfoenix.controls.JFXTextField;
 import database.DbServiceImpl;
 import database.IDbService;
+import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
 import entity.CollectionAlbum;
 import entity.KuGouMusicPlay;
 import entity.SearchData;
 import javafx.animation.*;
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
 import javafx.event.Event;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -35,12 +38,17 @@ import java.util.concurrent.CompletableFuture;
 
 import static flag.CommonResources.animationDuration;
 
+/**
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：
+ */
 public class LeftController extends BaseController implements Initializable {
 
     public JFXTabPane leftTabPane;
     public AnchorPane leftAnchorPane;
     public Tab tabMusic;
-    public ImageView imgClick;
+//    public ImageView imgClick;
     public VBox vbox;
     public Accordion accordion;
     public JFXButton jfxBtnSearch;
@@ -48,6 +56,7 @@ public class LeftController extends BaseController implements Initializable {
     public JFXButton jfxBtnRefresh;
     public HBox hbox;
     public JFXTextField tfSearchWord;
+    public MaterialDesignIconView mdView;
     private boolean isTabShow = true;
     private double currWidth = 0d;
 
@@ -76,10 +85,7 @@ public class LeftController extends BaseController implements Initializable {
         /*tfSearchWord.focusColorProperty().addListener((observable, oldValue, newValue) -> {
 
         });*/
-        
-        //想法：下一次的搜索开始的时候，如果前面的搜索没结束，那么先结束前面的搜索
-//        AtomicBoolean isOldSearchDone = new AtomicBoolean(false);
-        
+
         tfSearchWord.textProperty().addListener((observable, oldValue, newValue) -> {
             SearchViewNode node = SearchViewNode.getInstance();
             node.setHeading(new Text("搜索：" + newValue));
@@ -87,9 +93,8 @@ public class LeftController extends BaseController implements Initializable {
             Window window = tfSearchWord.getScene().getWindow();
 
             //查询的异步线程
-            CompletableFuture.supplyAsync(() -> {
-                return getSearchDataList(newValue.trim());
-            }).whenComplete((searchData, throwable) -> {
+            CompletableFuture.supplyAsync(() -> getSearchDataList(newValue.trim()))
+                    .whenComplete((searchData, throwable) -> {
                 if (null != throwable)  throwable.printStackTrace();
 
                 if (null != searchData && searchData.size() > 0) {
@@ -105,13 +110,18 @@ public class LeftController extends BaseController implements Initializable {
                 popOver.setContentNode(node);
             } else {
                 popOver.setContentNode(node);
-                popOver.show(window, window.getX()+40, window.getY()+130);
+                popOver.show(window, window.getX()+35, window.getY()+130);
+                ((Parent)popOver.getSkin().getNode()).getStylesheets().add(this.getClass().getClassLoader().getResource("css/test_css/PopOver.css").toExternalForm());
             }
         });
 
         jfxBtnAddAlbumList.setOnMouseClicked(me -> {
             Label label = new Label("收藏夹:");
             JFXTextField jfxTextField = new JFXTextField("嗯哼蹦擦擦");
+            final ChangeListener<Number> tChangeListener = (observable, oldValue, newValue) -> {
+                if (jfxTextField.getLength() > 25) jfxTextField.setText(jfxTextField.getText().substring(0, 25));
+            };
+            jfxTextField.lengthProperty().addListener(tChangeListener);
             JFXButton jfxButtonOK = new JFXButton("确定");
             HBox hBox = new HBox(5, label, jfxTextField, jfxButtonOK);
             MenuItem itemField = new MenuItem(null, hBox);
@@ -132,19 +142,21 @@ public class LeftController extends BaseController implements Initializable {
                             ListView<AlbumMemberNode> lv = CommonView.getInstance().getAlbumListView();
                             mapNewAlbum.put(album, lv);
                             accordion.getPanes().add(new MyTitlePane(jfxTextField.getText(), lv));
+                            //bug-2019/04/29-这里创建收藏夹之后，没有通知CommonView收藏夹更新了，这里应该主动通知
+                            CommonView.notifyAlbumListUpdate();
                         } else {
                             System.out.println("创建收藏夹失败");
                         }
                     }
                 }
                 contextMenu.hide();
+                jfxTextField.lengthProperty().removeListener(tChangeListener);
             });
         });
         //阻止点击事件下发
-        hbox.setOnMouseClicked(Event::consume);
+//        hbox.setOnMouseClicked(Event::consume);
         //发现一旦点击hbox，还是是执行这里，所以迷思苦想，才想到event.consume()
-        tabMusic.getTabPane().setOnMouseClicked(me -> {
-            System.out.println("imgClick.........");
+        mdView.setOnMouseClicked(me -> {
             if (isTabShow) {
                 vbox.setVisible(false);
                 //保存当前宽度值
@@ -253,7 +265,7 @@ public class LeftController extends BaseController implements Initializable {
                 break;
             default:
                 System.out.println("LeftController---移除收藏夹---");
-                accordion.getPanes().remove((MyTitlePane)data);
+                accordion.getPanes().remove(data);
                 break;
         }
     }//

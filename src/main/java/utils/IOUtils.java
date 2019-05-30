@@ -4,8 +4,12 @@ import entity.Lyric;
 import javafx.util.Duration;
 
 import java.util.*;
-import java.util.stream.Stream;
 
+/**
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：
+ */
 public class IOUtils {
 
     /*public  String[] getInitLyricArray(String lyric) {
@@ -16,7 +20,7 @@ public class IOUtils {
     /**
      * 根据歌词解析，返回歌词对象
      * @param lyric 歌词
-     * @return
+     * @return Map<String, Object>-->存歌词的TreeMap<Long, Integer>，还有每个index所对应的歌词Map<String, Object>
      */
     public static Map<String, Object> getInitLyricList(String lyric) {
         List<Lyric> lyricList = new ArrayList<>();

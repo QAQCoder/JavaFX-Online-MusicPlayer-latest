@@ -7,6 +7,11 @@ import javafx.scene.control.ButtonType;
 
 import java.util.Optional;
 
+/**
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：
+ */
 public class MainStage extends BaseStage {
 
     public MainStage(String fxml) {

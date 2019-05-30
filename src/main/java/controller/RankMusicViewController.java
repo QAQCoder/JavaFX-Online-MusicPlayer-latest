@@ -26,13 +26,16 @@ import service.MusicServiceImple;
 import utils.QuickUtils;
 import view.NewSongCell;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Stream;
 
 /**
- * 音乐榜单controller
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：音乐榜单controller
  */
 public class RankMusicViewController extends BaseController implements Initializable {
 
@@ -289,7 +292,7 @@ public class RankMusicViewController extends BaseController implements Initializ
         }
 
         CompletableFuture.runAsync(() -> {
-            list = SurfTheNet.visitTheNetword(SurfTheNet.NEWEST_MUSIC_LIST, NewMusicList.class);
+            list = MusicServiceImple.getInstance().getNewestMusicList();
         }).whenComplete((v, t) ->
             updateUi(list, 0)
         );

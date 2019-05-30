@@ -2,7 +2,7 @@
 .hbox {
     -fx-background-color: #38759c;
     -fx-border-color: #b7b7b7;
-    -fx-border-width: 0 0 0.5 0;
+    -fx-border-width: 0 0 0.2 0;
 }
 
 .header-button {

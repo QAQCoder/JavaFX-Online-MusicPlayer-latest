@@ -8,12 +8,12 @@
 }
 .new-song-list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:selected {
     -fx-background-color: #3d6e9a;
-    -fx-background-radius: 10;
+    /*-fx-background-radius: 10;*/
     -fx-text-fill: #6331ff;
 }
 .new-song-list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:hover {
     -fx-background-color: #4fb3f2;
-    -fx-background-radius: 10;
+    /*-fx-background-radius: 10;*/
 }
 /*-----------------------------------------------------------------------------------------*/
 .rank-list-view > .virtual-flow > .clipped-container > .sheet .list-cell {
@@ -24,10 +24,10 @@
 .rank-list-view{
     -fx-background-color: transparent;
 }
-.rank-list-view > .virtual-flow > .clipped-container > .sheet .list-cell:hover {
+.rank-list-view > .virtual-flow > .clipped-container > .sheet .list-cell:filled:hover {
     -fx-background-color: #b7b7b7;
 }
-.rank-list-view > .virtual-flow > .clipped-container > .sheet .list-cell:selected {
+.rank-list-view > .virtual-flow > .clipped-container > .sheet .list-cell:filled:selected {
     -fx-background-color: #67959c;
 }
 .rank-list-view > .virtual-flow > .clipped-container > .sheet .list-cell:selected > .text {
@@ -74,12 +74,13 @@
 
 .text {
     -fx-font-family: "Microsoft YaHei UI Light";
-    -fx-font-size: 15px;
+    -fx-font-size: 13px;
 }
 
 /*-----------------------------------*/
 .list-view > .virtual-flow > .scroll-bar {
     -fx-background-color:transparent;
+    -fx-pref-width: 10;
 }
 .list-view > .virtual-flow > .scroll-bar > .track {
     -fx-background-color:transparent;
@@ -87,6 +88,7 @@
 .list-view > .virtual-flow > .scroll-bar> .thumb {
     -fx-background-color:#4691c8;
     -fx-opacity: 0.5;
+    -fx-background-radius: 0;
 }
 .list-view > .virtual-flow > .scroll-bar > .thumb:hover {
     -fx-background-color:#4691c8;

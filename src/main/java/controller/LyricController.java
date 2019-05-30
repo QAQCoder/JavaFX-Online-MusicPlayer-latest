@@ -11,7 +11,6 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -19,7 +18,6 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Callback;
 import javafx.util.Duration;
-import org.controlsfx.control.PopOver;
 import utils.LoadUtil;
 
 import java.math.BigDecimal;
@@ -28,6 +26,11 @@ import java.util.*;
 
 import static flag.Flags.IS_LYRIC_VISIBLE;
 
+/**
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：
+ */
 public class LyricController extends BaseController implements Initializable {
 
     @FXML public Button btnBackG;
@@ -36,6 +39,8 @@ public class LyricController extends BaseController implements Initializable {
     public JFXButton btnSetLyricTime;
 
     private double currPosition = 0.8;
+
+    private Timeline timeline = null;
 
     private ObservableList<Lyric> lyricObservableList = null;
     private List<Lyric> lyricList = new ArrayList<>();
@@ -47,7 +52,7 @@ public class LyricController extends BaseController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        System.out.println("LyricController-----initialize---");
+//        System.out.println("---LyricController-----initialize---");
         BC_CONTEXT.put(LyricController.class.getName(), this);
         initView();
         initEvent();
@@ -80,12 +85,7 @@ public class LyricController extends BaseController implements Initializable {
             });
             menu.show(btnSetLyricTime.getScene().getWindow(), me.getScreenX()-100, me.getScreenY()+25);
         });
-
-        btnBackG.setOnAction(ae -> {
-            System.out.println("btnBackG.setOnAction");
-            updateUi(null, 0);
-        });
-    }
+    }//init event
 
     private void initView() {
         System.out.println("LyricController-->initView()");
@@ -114,24 +114,35 @@ public class LyricController extends BaseController implements Initializable {
     public void updateUi(Object data, int flag) {
         System.out.println("-----LyricController--->updateUi---");
 
-        switch (flag) {
-            case 0:
-                if (lyricList.isEmpty()) return;
-                Lyric lyric = lyricList.get(0);
-                Lyric lyric1 = lyricObservableList.get(0);
-                if (lyric.getTime().toMillis() != lyric1.getTime().toMillis() && !lyric.getText().equals(lyric1.getText())) {
-                    lyricObservableList.clear();
-                    lyricObservableList.addAll(lyricList);
-                    btnBackG.setText(dataBean.getAuthor_name() + " - " + dataBean.getSong_name());
-                }
-                break;
-            case 1:
-                lyricObservableList.clear();
-                lyricObservableList.addAll(lyricList);
-                btnBackG.setText(dataBean.getAuthor_name() + " - " + dataBean.getSong_name());
-                break;
+        if (flag == 0 && !lyricObservableList.isEmpty()) {
+            if (lyricList.isEmpty()) return;    //没有歌词，直接return
+            Lyric lyric = lyricList.get(0);
+            Lyric lyric1 = lyricObservableList.get(0);
+            //double的比较方法
+            int compare = lyric.getTime().compareTo(lyric1.getTime());
+            if (compare != 0 && !lyric.getText().equals(lyric1.getText())) {
+                clearLyric();
+            }
+        } else {
+            clearLyric();
         }
     }//updateUi
+
+    private void clearLyric() {
+        if (Platform.isFxApplicationThread()) {
+            if (!lyricObservableList.isEmpty()) lyricObservableList.clear();
+            lyricObservableList.addAll(lyricList);
+            btnBackG.setText(dataBean.getAudio_name());
+            listViewLyric.refresh();
+        } else {
+            Platform.runLater(() -> {
+                if (!lyricObservableList.isEmpty()) lyricObservableList.clear();
+                lyricObservableList.addAll(lyricList);
+                btnBackG.setText(dataBean.getAudio_name());
+                listViewLyric.refresh();
+            });
+        }
+    }
 
     @Override
     public void initData(Object data) {
@@ -139,17 +150,18 @@ public class LyricController extends BaseController implements Initializable {
         Map<String, Object> objectMap = (Map<String, Object>) data;
         //取出歌手名字和歌曲名称
         dataBean = (KuGouMusicPlay.DataBean) objectMap.get("musicInfo");
+        System.out.println("歌曲名称：" + dataBean.getAudio_name());
         //取出歌词
-        System.out.println("歌曲名称：" + dataBean.getAuthor_name() + " - " + dataBean.getSong_name());
-        //把数据临时保存
         Map<String, Object> dataMap = (Map<String, Object>) objectMap.get("musicLyric");
-        if (!this.lyricMap.isEmpty()) this.lyricMap.clear();
+        if (!lyricMap.isEmpty()) lyricMap.clear();
+        //歌词索引
         this.lyricMap = (TreeMap<Long, Integer>) dataMap.get("map_index");
+        //歌词索引对应的内容
         this.lyricList = (List<Lyric>) dataMap.get("lyric_list");
         updateUi(null, 1);
     }//
 
-    //begin 20190122-加入歌词回调显示，当前的显示歌词由MediaPlayer管理，时间容错待优化
+    //最终版本：歌词回调显示，时间容错已达到最优，我可真是个小机灵鬼，嘻嘻嘻（自娱自乐）
     public SyncLyricCallback callback = (Duration duration) -> {
         if (listViewLyric == null || !IS_LYRIC_VISIBLE.get()) {
             return;
@@ -161,13 +173,15 @@ public class LyricController extends BaseController implements Initializable {
         }
     };//
 
+    //通过动画效果达到微调歌词显示的效果，歌词显示默认延迟一秒，我可真是个小机灵鬼，嘻嘻嘻
     private void updateGui(int index) {
-        final KeyFrame kf1 = new KeyFrame(Duration.millis(0));
-        final KeyFrame kf2 = new KeyFrame(Duration.millis(delayTimeProperty.get()), e -> {
+        if (timeline == null) timeline = new Timeline();
+        KeyFrame kf2 = new KeyFrame(Duration.millis(delayTimeProperty.get()), e -> {
             listViewLyric.getSelectionModel().select(index);
+            //往回缩一点，嘿嘿嘿，我可真是个小机灵鬼~~~QWQ
             listViewLyric.scrollTo(index >= 5 ? index-5: 0);
         });
-        final Timeline timeline = new Timeline(kf1, kf2);
+        timeline.getKeyFrames().addAll(new KeyFrame(Duration.millis(0)), kf2);
         Platform.runLater(timeline::play);
     }
 
@@ -194,4 +208,4 @@ public class LyricController extends BaseController implements Initializable {
             updateUi(null, 0);
         }
     }//
-};
+}

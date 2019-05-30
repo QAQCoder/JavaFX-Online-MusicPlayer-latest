@@ -2,9 +2,15 @@ package service;
 
 import entity.*;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：
+ */
 public interface IMusicService {
 
     List<KuGouMusicPlay.DataBean> getSearchMusicList(String keyword, int page, int eachPageSize);
@@ -34,4 +40,6 @@ public interface IMusicService {
     RankList getRankList(); //获取榜单数据
 
     RankListContains getRankListContains(int rankId);   //获取榜单包含的歌曲
+
+    NewMusicList getNewestMusicList();   //获取新歌
 }

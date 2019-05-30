@@ -1,7 +1,6 @@
 package controller;
 
 import base.BaseController;
-import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import entity.KuGouMusicPlay;
 import entity.SingerListContains;
@@ -18,6 +17,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import node.MyButton;
+import org.controlsfx.control.Notifications;
 import service.IMusicService;
 import service.MusicServiceImple;
 import utils.LoadUtil;
@@ -27,12 +28,18 @@ import utils.TimeUtils;
 import view.CommonView;
 
 import java.net.URL;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
+/**
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：
+ */
 public class MusicTvController extends BaseController implements Initializable {
 
     @FXML public Pagination pagination;
@@ -50,6 +57,7 @@ public class MusicTvController extends BaseController implements Initializable {
     public Button btnPlay;
     public JFXTextArea jfxTextAreaIntro;
     public Label labOtherInfo;
+    public TableColumn tColumn_add_to_queue;
     //标志位，记录LyricController是否已经load
     private boolean isLyricLoad = false;
     //顶部数据实体
@@ -95,10 +103,23 @@ public class MusicTvController extends BaseController implements Initializable {
                 if (item != null) setText(TimeUtils.handleSecond((Integer)item));
             }
         });
+        tColumn_add_to_queue.setCellFactory(param -> new TableCell(){
+            @Override
+            protected void updateItem(Object item, boolean empty) {
+                MyButton myButton = new MyButton("+");
+                myButton.setHoverStyle();
+                setGraphic(myButton);
+                getGraphic().setOnMouseClicked(me -> {
+                    MusicResources.getInstance().addToPlayQueue(tableView.getItems().get(getIndex()));
+                });
+            }
+        });
         tColumn_operate.setCellFactory(param -> new TableCell(){
             @Override
             protected void updateItem(Object item, boolean empty) {
-                setGraphic(new JFXButton("+"));
+                MyButton myButton = new MyButton("≡");
+                myButton.setHoverStyle();
+                setGraphic(myButton);
                 //难题：怎么知道当前是哪一行，已解决，使用getIndex();
                 tvAddBtnEventBatchInit(getGraphic(), getIndex());
             }
@@ -106,14 +127,12 @@ public class MusicTvController extends BaseController implements Initializable {
     }
 
     private void tvAddBtnEventBatchInit(Node btn, int currIndex) {
-//        System.out.println("---------------tvAddBtnEventBatchInit------------------------");
         //点击添加按钮后，显示一个ContextMenu，选择添加到哪个收藏夹
         btn.setOnMouseClicked(me -> {
             System.out.println("添加点击事件触发------------");
             tableView.getSelectionModel().select(currIndex);
             //更新当前选择的音乐
             CommonResources.currMusicBean = tableView.getSelectionModel().getSelectedItem();
-
             ContextMenu cm = CommonView.getInstance().getAddAlbumContextMenu();
             cm.show(btn.getScene().getWindow(), me.getScreenX()-50, me.getScreenY()+20);
             cm.setHideOnEscape(false);
@@ -137,10 +156,10 @@ public class MusicTvController extends BaseController implements Initializable {
         pagination.setPageFactory(param -> {
             if (!CommonResources.isPaginationInit) {
                 pagination.setDisable(true);
-                System.out.println("pagination setPageFactory stop");
+//                System.out.println("pagination setPageFactory stop");
                 return null;
             } else {
-                System.out.println("pagination setPageFactory start");
+//                System.out.println("pagination setPageFactory start");
                 pagination.setDisable(false);
                 if (!CommonResources.isPaginationDone) {
                     System.out.println("不急不急，上次分页请求还没完成呢----------");
@@ -206,8 +225,11 @@ public class MusicTvController extends BaseController implements Initializable {
             CommonResources.isPaginationDone = true;
 
             ((MainViewController)BC_CONTEXT.get(MainViewController.class.getName())).showSpinnerSearch(false);
-            if (t != null)
+            if (t != null) {
                 System.out.println("获取指定页的音乐抛异常" + t.getMessage());
+                if (t instanceof UnknownHostException)
+                    Notifications.create().title("错误").text("网络出现异常咯！").showWarning();
+            }
         });
     }//
 
@@ -237,7 +259,7 @@ public class MusicTvController extends BaseController implements Initializable {
         ((BottomController)BC_CONTEXT.get(BottomController.class.getName())).playMusic(selectedItem, true);
         //并且把音乐加到播放列表
         MusicResources.getInstance().setCurrMusicList(tableView.getItems());
-        MusicResources.getInstance().setSelectIndexCallback(currentSelectIndexCallback);
+        MusicResources.getInstance().addCallback(currentSelectIndexCallback);
     }
 
     @Override
@@ -270,7 +292,7 @@ public class MusicTvController extends BaseController implements Initializable {
 
     //初始化顶部view的信息
     public void initTopViewInfo() {
-        System.out.println("initTopViewInfo--初始化顶部view的信息");
+//        System.out.println("initTopViewInfo--初始化顶部view的信息");
         imgViewIcon.setImage(new Image(StringUtils.getImgUrl(tableViewPlayInfoBean.getImgUrl())));
         labTitle.setText(tableViewPlayInfoBean.getTitle());
         labOtherInfo.setText(tableViewPlayInfoBean.getOtherInfo());

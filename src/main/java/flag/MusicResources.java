@@ -1,14 +1,9 @@
 package flag;
 
-import base.BaseController;
-import controller.LeftController;
 import entity.KuGouMusicPlay;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TitledPane;
-import node.AlbumMemberNode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +11,9 @@ import java.util.Objects;
 import java.util.Random;
 
 /**
- * 保存当前的播放列表
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：播放队列
  */
 public class MusicResources {
     /* 单例 */
@@ -43,6 +40,9 @@ public class MusicResources {
     public final int SINGLE_MODE = 1;
     public final int RANDOM_MODE = 2;
 
+    //判断是否需要立即播放
+    private boolean isPlayImmediately = true;
+
     //随机音乐列表，从这里面得到，放一首就少一首
     private List<Integer> randomSongHadNoPlayed = new ArrayList<>();
 
@@ -61,7 +61,7 @@ public class MusicResources {
     }
 
     //当前所（播放）的歌曲的索引
-    private SimpleIntegerProperty currSelectIndexProperty = new SimpleIntegerProperty(0);
+    private SimpleIntegerProperty currSelectIndexProperty = new SimpleIntegerProperty(-1);
     public SimpleIntegerProperty currSelectIndexProperty() {
         return currSelectIndexProperty;
     }
@@ -74,7 +74,6 @@ public class MusicResources {
             this.currSelectIndexProperty.set(0);
         else if (getCurrSelectIndex() == getCurrMusicList().size()-1 && c > getCurrSelectIndex())   //结尾
             System.out.println("最后一首了，下一曲无用");
-            //            this.currSelectIndexProperty.set(getCurrMusicList().size()-1);
         else
             this.currSelectIndexProperty.set(c);    //正常
     }//
@@ -124,14 +123,19 @@ public class MusicResources {
             //没有的话，一直循环来
             initHadPlayedList();
         }
-        //获取刚刚播放完【或者正在播放】的音乐的索引，然后移除它
-        randomSongHadNoPlayed.remove((Integer) getCurrSelectIndex());
-        //重新计算（没有播放歌曲）的数量，从中生成一个随机索引
-        int i = new Random().nextInt(randomSongHadNoPlayed.size());
-        //根据（随机索引）从（没有播放歌曲）List中获取实际上对应CurrMusicList的索引
-        nextInt = randomSongHadNoPlayed.get(i);
-
-        setCurrSelectIndex(nextInt);
+        //搭配播放列表使用：点击了哪首歌，就播放它，而不是随机一首
+        if (flag != CURR_SONG) {
+            //获取刚刚播放完【或者正在播放】的音乐的索引，然后移除它
+            randomSongHadNoPlayed.remove((Integer) getCurrSelectIndex());
+            //重新计算（没有播放歌曲）的数量，从中生成一个随机索引
+            int i = new Random().nextInt(randomSongHadNoPlayed.size());
+            //根据（随机索引）从（没有播放歌曲）List中获取实际上对应CurrMusicList的索引
+            nextInt = randomSongHadNoPlayed.get(i);
+            setCurrSelectIndex(nextInt);
+        } else {
+            //移除所选歌曲的索引
+            randomSongHadNoPlayed.remove((Integer) getCurrSelectIndex());
+        }
         return getCurrMusicList().get(getCurrSelectIndex());
     }//
 
@@ -141,6 +145,7 @@ public class MusicResources {
         return currMusicListProperty;
     }
     public List<KuGouMusicPlay.DataBean> getCurrMusicList() {
+//        if (currMusicListProperty.get() == null) currMusicListProperty.set(new ArrayList<>());
         return currMusicListProperty.get();
     }
     public void setCurrMusicList(List<KuGouMusicPlay.DataBean> dataBeanList) {
@@ -149,37 +154,57 @@ public class MusicResources {
         if (getCurrPlayMode() == RANDOM_MODE) {
             for (int i = 0; i < dataBeanList.size(); i++) randomSongHadNoPlayed.add(i);
         }
+        isPlayImmediately = true;
         //如果列表为null，直接set进去
         if (getCurrMusicList() == null) {
             currMusicListProperty().set(dataBeanList);
             return;
         }
-
         int s1 = getCurrMusicList().size();
         int s2 = dataBeanList.size();
-        if (s1 == s2) {
-            boolean b1 = Objects.equals(getCurrMusicList().get(0), dataBeanList.get(0));
-            boolean b2 = Objects.equals(getCurrMusicList().get(s1/2), dataBeanList.get(s2/2));
-            if(b1 && b2) System.out.println("----播放列表相同，不能重复添加----");
+        boolean b1 = Objects.equals(getCurrMusicList().get(0), dataBeanList.get(0));
+        boolean b2 = Objects.equals(getCurrMusicList().get(s1/2), dataBeanList.get(s2/2));
+        if (s1 == s2 && b1 && b2) {
+            System.out.println("----播放列表相同，不能重复添加----");
+        } else {
+            currMusicListProperty().set(dataBeanList);
+            CommonResources.QuickPlayListsView.notifyDataUpdate();
         }
-        else currMusicListProperty().set(dataBeanList);
     }//
 
     public void setCurrMusicList(KuGouMusicPlay.DataBean dataBean) {
-        List<KuGouMusicPlay.DataBean> temp = new ArrayList<>();
-        temp.add(dataBean);
-        setCurrMusicList(temp);
+        if (dataBean == null) {
+            System.out.println("dataBean 为空啵");
+            return;
+        }
+        List<KuGouMusicPlay.DataBean> list = new ArrayList<>();
+        list.add(dataBean);
+        setCurrMusicList(list);
     }
 
-    /**
-     * 新列表来了，更新[播放列表]收藏夹
-     */
-    /*private void initVisualPlayList() {
-        TitledPane pane =
-                ((LeftController) BaseController.BC_CONTEXT.get(LeftController.class.getName())).getTitledPane("播放列表");
+    public void addToPlayQueue(KuGouMusicPlay.DataBean bean) {
+        if (bean == null) {
+            System.out.println("dataBean 为空啵");
+        } else {
+            isPlayImmediately = false;
+            if (getCurrMusicList() == null) {
+                setCurrMusicList(bean);
+            } else {
+                getCurrMusicList().add(bean);
+                CommonResources.QuickPlayListsView.notifyDataUpdate();
+            }
+        }
+    }//
 
-        ListView<AlbumMemberNode> listView = (ListView<AlbumMemberNode>) pane.getContent();
-    }//*/
+    public void removeSongFromQueue(int index) {
+        getCurrMusicList().remove(index);
+        CommonResources.QuickPlayListsView.notifyDataUpdate();
+    }
+
+    //是否播放队列为空
+    public boolean isQueueEmpty() {
+        return getCurrMusicList() == null || getCurrMusicList().isEmpty();
+    }
 
     private void initListener() {
         //监听播放模式的改变
@@ -191,16 +216,16 @@ public class MusicResources {
             //判断新的模式是什么
             switch (getCurrPlayMode()) {
                 case NORMAL_MODE:   //正常模式
-                    setCurrSelectIndex(0);
-                    play(CURR_SONG);
+//                    setCurrSelectIndex(0);
+//                    play(CURR_SONG);
                     break;
                 case SINGLE_MODE:   //当前歌曲--单曲播放
-                    play(CURR_SONG);
+//                    play(CURR_SONG);
                     break;
                 case RANDOM_MODE:   //只要是点了随机播放，统统清除以前的标志，相当于一个全新的歌曲List
-                    setCurrSelectIndex(0);
+//                    setCurrSelectIndex(0);
                     initHadPlayedList();
-                    play(CURR_SONG);
+//                    play(CURR_SONG);
                     break;
             }
         });
@@ -208,13 +233,13 @@ public class MusicResources {
         currMusicListProperty.addListener((observable, oldValue, newValue) -> {
             System.out.println("listener-注入新的播放列表");
             setCurrSelectIndex(0);
-            if (newValue != null) play(CURR_SONG);
+            if (newValue != null && isPlayImmediately) play(CURR_SONG);
         });
         //监听选择
         currSelectIndexProperty.addListener((observable, oldValue, newValue) -> {
-            System.out.println("currSelectIndex-选择音乐改变--" + newValue.intValue());
-            if (currentSelectIndexCallback != null) {
-                currentSelectIndexCallback.selectWhat(newValue.intValue());
+            System.out.println("--currSelectIndex-选择音乐改变--" + newValue.intValue());
+            if (getCallbackList() != null && !getCallbackList().isEmpty()) {
+                getCallbackList().forEach(callback -> callback.selectWhat(newValue.intValue()));
             }
         });
     }
@@ -257,12 +282,17 @@ public class MusicResources {
         this.callback = callback;
     }
 
-    private static CurrentSelectIndexCallback currentSelectIndexCallback = null;
     public interface CurrentSelectIndexCallback {
         void selectWhat(int index);
     }
-    public void setSelectIndexCallback(CurrentSelectIndexCallback selectIndexCallback) {
-        currentSelectIndexCallback = selectIndexCallback;
+    //回调集合，有点观察者的意思，反正我这边选择的下标改变了，通知我这所有的回调名单
+    private static List<CurrentSelectIndexCallback> callbackList = null;
+    public void addCallback(CurrentSelectIndexCallback callback) {
+        if (callbackList == null) callbackList = new ArrayList<>();
+        if (!callbackList.contains(callback)) callbackList.add(callback);
+    }
+    private List<CurrentSelectIndexCallback> getCallbackList() {
+        return callbackList;
     }
 
     //返回当前播放的歌曲
@@ -270,11 +300,24 @@ public class MusicResources {
         return getCurrMusicList().get(getCurrSelectIndex());
     }
 
+    //是否当前有歌曲在播放或者暂停
+    public boolean isCurrentTimeHaveMusicPlay() {
+        System.out.println("MusicResources--->isCurrentTimeHaveMusicPlay()");
+        return (MusicResources.getInstance().getCurrMusicList() == null || MusicResources.getInstance().getCurrPlayingSong() == null);
+    }
+
     /**
      * 播放下一首歌，由MyPlayerChangeListener调用，
      */
     public void nextSong() { //参数1，表示下一首
         play(NEXT_SONG);
+    }//
+    /**
+     * 播放下一首歌，由MyPlayerChangeListener调用，
+     */
+    public void nextSong(int selIndex) {
+        setCurrSelectIndex(selIndex);
+        currSong();
     }//
     /**
      * 播放上一首歌

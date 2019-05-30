@@ -5,13 +5,14 @@ import javafx.util.Duration;
 import java.io.Serializable;
 
 /**
- * 歌词pojo，保存了时间与歌词
- * 每句歌词对应的时间
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：歌词pojo，保存了时间与歌词
  */
 public class Lyric extends BaseLyric implements Serializable {
-
     private Duration time;
     private String text;
+    //get set
 
     public Lyric(Duration duration) {
         super(duration.toMillis());

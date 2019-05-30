@@ -17,6 +17,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
+/**
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：
+ */
 public class SongListClassifySelectView extends HBox {
 
     private MyButton btnClassifyName = new MyButton();
@@ -32,7 +37,7 @@ public class SongListClassifySelectView extends HBox {
         setPrefSize(1120, 100);
         setAlignment(Pos.TOP_LEFT);
         HBox.setHgrow(jfxMP_Detail, Priority.ALWAYS);
-        jfxMP_Detail.setCellWidth(18);
+        jfxMP_Detail.setCellWidth(25);
         jfxMP_Detail.setCellHeight(8);
         getStylesheets().add("css/my_button_css.css");
 
@@ -54,6 +59,7 @@ public class SongListClassifySelectView extends HBox {
         List<SongListClassify.DataBean.InfoBean.ChildBean> child = infoBean.getChild();
         child.forEach(label -> {
             MyButton btn = new MyButton(label.getCategoryname());
+            btn.getStyleClass().add("btnQAQ");
             btn.setAttributesss(label.getCategoryid(), label.getCategoryname());
             jfxMP_Detail.getChildren().add(btn);
             setOnEvent_MyButton(btn);
@@ -68,7 +74,6 @@ public class SongListClassifySelectView extends HBox {
             }).whenComplete((songClassifyContains, throwable) -> {
                 int status = songClassifyContains.getStatus();
                 if (1 != status) {
-//                    QuickUtils.showNotification("错误", "获取歌单类别：" + btn.getAttribute() + "发生网络异常", null);
                     Notifications.create().title("错误").text("获取歌单类别：" + btn.getAttribute() + "发生网络异常").showInformation();
                 } else {
                     SongClassifyContains.DataBean data = songClassifyContains.getData();
@@ -80,12 +85,10 @@ public class SongListClassifySelectView extends HBox {
                         if (this.timestamp == data.getTimestamp())
                             System.out.println("时间戳相同，不更新UI");
                         else {
-//                            Platform.runLater(() -> BaseController.BC_CONTEXT.getExpandedPane(SongListController.class.getName()).updateUi(map, 2));
                             BaseController.BC_CONTEXT.get(SongListController.class.getName()).updateUi(map, 2);
                             timestamp = data.getTimestamp();
                         }
                     } else {
-//                        Platform.runLater(() -> BaseController.BC_CONTEXT.getExpandedPane(SongListController.class.getName()).updateUi(map, 2));
                         BaseController.BC_CONTEXT.get(SongListController.class.getName()).updateUi(map, 2);
                         timestamp = data.getTimestamp();
                     }

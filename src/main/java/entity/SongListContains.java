@@ -4,9 +4,10 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 import java.util.List;
-
 /**
- * 歌单下的音乐列表
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：歌单下的音乐列表
  */
 public class SongListContains extends SongListEntityParent  implements Serializable {
     /**

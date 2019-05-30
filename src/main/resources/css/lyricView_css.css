@@ -25,11 +25,13 @@
 /*-----------------------------------*/
 .list-view > .virtual-flow > .scroll-bar {
     -fx-background-color:transparent;
+    -fx-pref-width: 10;
 }
 .list-view > .virtual-flow > .scroll-bar > .track {
     -fx-background-color:transparent;
 }
 .list-view > .virtual-flow > .scroll-bar> .thumb {
+    -fx-background-radius: 0;
     -fx-background-color:#4691c8;
     -fx-opacity: 0.5;
 }

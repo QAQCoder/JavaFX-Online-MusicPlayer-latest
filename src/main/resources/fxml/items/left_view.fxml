@@ -1,96 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXTabPane?>
-<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.*?>
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
 <?import de.jensd.fx.glyphs.octicons.OctIconView?>
-<?import javafx.geometry.Insets?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Tab?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-
-<AnchorPane fx:id="leftAnchorPane" prefHeight="500.0" prefWidth="314.0" styleClass="stackPane" stylesheets="@../../css/leftPane_css.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LeftController">
-    <JFXTabPane fx:id="leftTabPane" prefWidth="0.0" rotateGraphic="true" side="LEFT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" VBox.vgrow="ALWAYS">
+<AnchorPane fx:id="leftAnchorPane" prefHeight="500.0" prefWidth="325.0" styleClass="stackPane"
+            stylesheets="@../../css/leftPane_css.css" xmlns="http://javafx.com/javafx/8.0.172-ea"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LeftController">
+    <JFXTabPane fx:id="leftTabPane" prefWidth="0.0" rotateGraphic="true" side="LEFT" AnchorPane.bottomAnchor="0.0"
+                AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" VBox.vgrow="ALWAYS">
         <Tab fx:id="tabMusic">
             <graphic>
-                <ImageView fx:id="imgClick" fitHeight="20.0" fitWidth="20.0" rotate="90">
-                    <image>
-                        <Image url="@../../icon/left_myMusic.png" />
-                    </image>
-                </ImageView>
+                <MaterialDesignIconView fx:id="mdView" rotate="90" fill="#f1f1f1" opacity="0.0" glyphName="LIBRARY_MUSIC" size="20"/>
             </graphic>
-            <VBox fx:id="vbox" prefWidth="231.0" style="-fx-background-color: transparent;">
-                <HBox fx:id="hbox" alignment="CENTER_LEFT" prefHeight="35.0">
-                    <VBox.margin>
-                        <Insets />
-                    </VBox.margin>
-                    <padding>
-                        <Insets bottom="8.0" left="5.0" right="5.0" top="8.0" />
-                    </padding>
-                    <JFXTextField fx:id="tfSearchWord" alignment="CENTER" focusColor="#ccced3" promptText="search music..." HBox.hgrow="ALWAYS">
-                        <HBox.margin>
-                            <Insets />
-                        </HBox.margin>
-                  <font>
-                     <Font name="Microsoft YaHei Bold" size="13.0" />
-                  </font>
-                    </JFXTextField>
-                    <JFXButton fx:id="jfxBtnSearch" layoutX="10.0" layoutY="10.0" text="">
-                        <graphic>
-                            <OctIconView glyphName="SEARCH" opacity="0.7" size="1.2em" />
-                        </graphic>
+
+            <content>
+                <VBox fx:id="vbox" prefWidth="240.0" style="-fx-background-color: transparent;">
+                    <HBox fx:id="hbox" alignment="CENTER_LEFT" prefHeight="35.0">
+                        <VBox.margin>
+                            <Insets/>
+                        </VBox.margin>
                         <padding>
-                            <Insets bottom="2.0" left="-20.0" />
+                            <Insets bottom="8.0" left="5.0" right="5.0" top="8.0"/>
                         </padding>
-                    </JFXButton>
-                    <JFXButton fx:id="jfxBtnAddAlbumList" text="">
-                        <graphic>
-                            <MaterialDesignIconView glyphName="PLUS" size="1.4em" />
-                        </graphic>
-                        <HBox.margin>
-                            <Insets bottom="2.0" left="8.0" />
-                        </HBox.margin>
-                    </JFXButton>
-                    <JFXButton fx:id="jfxBtnRefresh" layoutX="241.0" layoutY="18.0" text="">
-                        <graphic>
-                            <MaterialDesignIconView glyphName="REFRESH" opacity="0.73" size="1.4em" />
-                        </graphic>
-                  <HBox.margin>
-                     <Insets />
-                  </HBox.margin>
-                    </JFXButton>
-                </HBox>
-                <Accordion fx:id="accordion" VBox.vgrow="ALWAYS">
-                    <panes>
-                        <!--<MyTitlePane text="播放列表">
-                            <ListView fx:id="lvCurrPlaying" AnchorPane.bottomAnchor="0.0"
-                                      AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-                                      AnchorPane.topAnchor="0.0"/>
-                        </MyTitlePane>
-                        <MyTitlePane text="最近播放">
-                            <ListView fx:id="lvRecentPlay" style="-fx-background-color: transparent;"
-                                      AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
-                                      AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
-                        </MyTitlePane>
-                        <MyTitlePane text="本地音乐">
-                            <ListView fx:id="lvLocalSong" style="-fx-background-color: transparent;"
-                                      AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
-                                      AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
-                        </MyTitlePane>
-                        <MyTitlePane text="我的喜欢">
-                            <ListView fx:id="lvMyLove" style="-fx-background-color: transparent;"
-                                      AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
-                                      AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
-                        </MyTitlePane>-->
-                    </panes>
-                </Accordion>
-            </VBox>
+                        <JFXTextField fx:id="tfSearchWord" alignment="CENTER" focusColor="#ccced3"
+                                      promptText="search music..." HBox.hgrow="ALWAYS">
+                            <HBox.margin>
+                                <Insets/>
+                            </HBox.margin>
+                            <font>
+                                <Font name="Microsoft YaHei Bold" size="13.0"/>
+                            </font>
+                        </JFXTextField>
+                        <JFXButton fx:id="jfxBtnSearch" layoutX="10.0" layoutY="10.0" text="">
+                            <graphic>
+                                <OctIconView glyphName="SEARCH" opacity="0.7" size="1.2em"/>
+                            </graphic>
+                            <padding>
+                                <Insets bottom="2.0" left="-20.0"/>
+                            </padding>
+                        </JFXButton>
+                        <JFXButton fx:id="jfxBtnAddAlbumList" text="">
+                            <graphic>
+                                <MaterialDesignIconView glyphName="PLUS" size="1.4em"/>
+                            </graphic>
+                            <HBox.margin>
+                                <Insets bottom="2.0" left="8.0"/>
+                            </HBox.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="jfxBtnRefresh" layoutX="241.0" layoutY="18.0" text="">
+                            <graphic>
+                                <MaterialDesignIconView glyphName="REFRESH" opacity="0.73" size="1.4em"/>
+                            </graphic>
+                            <HBox.margin>
+                                <Insets/>
+                            </HBox.margin>
+                        </JFXButton>
+                    </HBox>
+                    <Accordion fx:id="accordion" VBox.vgrow="ALWAYS">
+                        <panes>
+                            <!--<MyTitlePane text="播放列表">
+                                    <ListView fx:id="lvCurrPlaying" AnchorPane.bottomAnchor="0.0"
+                                              AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                              AnchorPane.topAnchor="0.0"/>
+                                </MyTitlePane>
+                                <MyTitlePane text="最近播放">
+                                    <ListView fx:id="lvRecentPlay" style="-fx-background-color: transparent;"
+                                              AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+                                </MyTitlePane>
+                                <MyTitlePane text="本地音乐">
+                                    <ListView fx:id="lvLocalSong" style="-fx-background-color: transparent;"
+                                              AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+                                </MyTitlePane>
+                                <MyTitlePane text="我的喜欢">
+                                    <ListView fx:id="lvMyLove" style="-fx-background-color: transparent;"
+                                              AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+                                </MyTitlePane>-->
+                        </panes>
+                    </Accordion>
+                </VBox>
+            </content>
         </Tab>
     </JFXTabPane>
 </AnchorPane>

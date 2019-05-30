@@ -3,6 +3,11 @@ package base;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：
+ */
 public abstract class BaseController {
     public static Map<String, BaseController> BC_CONTEXT = new HashMap<>();
 

@@ -9,26 +9,30 @@ import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.*;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import node.MyButton;
+import org.controlsfx.control.Notifications;
 import service.IMusicService;
 import service.MusicServiceImple;
 import view.SongListCell;
 import view.SongListClassifySelectView;
 
 import java.net.URL;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.concurrent.CompletableFuture;
-import java.util.function.BiConsumer;
 
 /**
- * 歌单列表Controller
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：歌单列表Controller
  */
 public class SongListController extends BaseController implements Initializable {
 
@@ -47,6 +51,9 @@ public class SongListController extends BaseController implements Initializable 
     private SongList.PlistBean.ListBean listBean = null;
     private SongClassifyContains.DataBean listBean2 = null;
 
+    private List<SongListClassify.DataBean.InfoBean> classifyList = null;
+    private VBox classifyVBox = null;
+
     private TextArea textArea = new TextArea();
 
     @Override
@@ -58,7 +65,6 @@ public class SongListController extends BaseController implements Initializable 
     }
 
     private void initView() {
-//        System.out.println("SongListController----initView");
          jfxMasonryPaneChildren = jfxMasonryPane.getChildren();
         //绑定宽度高度
         jfxMasonryPane.prefWidthProperty().bind(scrollPane.widthProperty());
@@ -70,31 +76,36 @@ public class SongListController extends BaseController implements Initializable 
         btnRefresh.setOnMouseClicked(me -> this.initData(null));
 
         btnSelectClassify.setOnMouseClicked(me -> {
-            CompletableFuture.supplyAsync(() -> {
-                return musicService.getSongListClassify().getData().getInfo();
-            }).handle((infoBeans, throwable) -> {
-                if (null != throwable)
-                    throwable.printStackTrace();
-                else if (null != infoBeans){
-                    VBox vBox = new VBox();
-                    infoBeans.forEach(bean -> Platform.runLater(() -> vBox.getChildren().add(new SongListClassifySelectView(bean))));
-                    Platform.runLater(() -> showJFX_Dialog(vBox));
-                }
-                return null;
-            });
+            if (classifyVBox != null && !classifyVBox.getChildren().isEmpty()) {
+                showJFX_Dialog(classifyVBox);
+            } else {
+                CompletableFuture.supplyAsync(() -> {
+                    return musicService.getSongListClassify().getData().getInfo();
+                }).handle((infoBeans, throwable) -> {
+                    if (null != throwable) {
+                        throwable.printStackTrace();
+                        if (throwable instanceof UnknownHostException)
+                            Notifications.create().title("错误").text("网络出现异常咯！").showWarning();
+                    }
+                    else if (null != infoBeans){
+                        if (classifyVBox == null) classifyVBox = new VBox();
+                        infoBeans.forEach(bean -> Platform.runLater(() -> classifyVBox.getChildren().add(new SongListClassifySelectView(bean))));
+                        Platform.runLater(() -> showJFX_Dialog(classifyVBox));
+                    }
+                    return null;
+                });
+            }
         });
     }
 
     private void showJFX_Dialog(Node node) {
         JFXDialogLayout content = new JFXDialogLayout();
-//        content.setHeading(new Text("选择歌单分类"));
         content.setBody(node);
         MyButton btnClose = new MyButton("关闭");
         content.setActions(btnClose);
         content.setPrefSize(1120, 580);
         JFXDialog dialog = new JFXDialog(stackPane, content, JFXDialog.DialogTransition.CENTER);
         dialog.show();
-
         btnClose.setOnAction(ae -> dialog.close() );
     }
 
@@ -119,6 +130,8 @@ public class SongListController extends BaseController implements Initializable 
             if (t != null) {
                 t.printStackTrace();
                 System.out.println("SongListController--initData--异常情况：" + t);
+                if (t instanceof UnknownHostException)
+                    Notifications.create().title("错误").text("网络出现异常咯！").showWarning();
             }
         });
 

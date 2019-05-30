@@ -9,6 +9,11 @@ import java.sql.Statement;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：
+ */
 public interface IDbService {
 
     boolean createDB();

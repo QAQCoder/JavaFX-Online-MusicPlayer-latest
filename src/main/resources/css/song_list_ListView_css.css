@@ -1,0 +1,57 @@
+
+.list-view {
+    -fx-background-color: transparent;
+    -fx-pref-width: 320;
+}
+
+.list-cell {
+    -fx-background-color: transparent;
+    -fx-font-size: 13;
+    -fx-alignment: center;
+    -fx-pref-width: 295;
+    -fx-pref-height: 40;
+}
+
+.list-view .scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.list-view .list-cell:filled:selected {
+    -fx-background-color: #4892cc;
+    -fx-background-radius: 2;
+    -fx-text-fill: #c90000;
+    -fx-alignment: center;
+}
+.list-view .list-cell:filled:hover {
+    -fx-background-color: #a8a8a8;
+}
+
+/*-----------------------------------*/
+.list-view > .virtual-flow > .scroll-bar {
+    -fx-background-color:transparent;
+    -fx-pref-width: 10;
+}
+.list-view > .virtual-flow > .scroll-bar > .track {
+    -fx-background-color:transparent;
+    -fx-pref-width: 0.5;
+}
+.list-view > .virtual-flow > .scroll-bar> .thumb {
+    -fx-background-radius: 0;
+    -fx-background-color:#4691c8;
+    -fx-opacity: 0.5;
+    -fx-pref-width: 0.5;
+}
+.list-view > .virtual-flow > .scroll-bar > .thumb:hover {
+    -fx-background-color:#4691c8;
+    -fx-opacity: 0.8;
+}
+.list-view > .virtual-flow > .scroll-bar> .thumb:selected {
+    -fx-background-color:transparent;
+    -fx-opacity: 1.0;
+}
+.list-view > .virtual-flow > .corner {
+    -fx-background-color:transparent;
+}
+.list-view .virtual-flow .scroll-bar .increment-button:hover {
+    -fx-background-color:pink;
+}

@@ -3,8 +3,10 @@ package controller;
 import app.MainApp;
 import base.BaseController;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXSpinner;
 import com.jfoenix.controls.JFXTextField;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import database.DbServiceImpl;
 import database.IDbService;
 import entity.KuGouMusicPlay;
@@ -25,6 +27,11 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.concurrent.CompletableFuture;
 
+/**
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：
+ */
 public class SettingViewController extends BaseController implements Initializable {
 
     public JFXTextField tfScanPath;
@@ -33,7 +40,8 @@ public class SettingViewController extends BaseController implements Initializab
     public JFXSpinner jfxSpinner;
     public Label labShowMsg;
     public JFXButton btnFullScreen;
-    private String path;
+    public JFXCheckBox checkBoxAlwaysOnTop;
+    private String[] properties;
 
 
     @Override
@@ -44,11 +52,13 @@ public class SettingViewController extends BaseController implements Initializab
     }
 
     private void initView() {
-        if (path != null) {
-            tfScanPath.setText(path);
-        } else {
-            tfScanPath.setText(StringUtils.readProperties());
+        System.out.println("initView-settings");
+        if (properties == null || properties.length < 1) {
+            properties = StringUtils.readProperties();
         }
+        tfScanPath.setText(properties[0]);
+        checkBoxAlwaysOnTop.setSelected(Boolean.parseBoolean(properties[1]));
+        if (labShowMsg.getText() != null && !labShowMsg.getText().isEmpty()) labShowMsg.setText(null);
     }
 
     private void initEvent() {
@@ -56,18 +66,22 @@ public class SettingViewController extends BaseController implements Initializab
             DirectoryChooser chooser = new DirectoryChooser();
             chooser.setTitle("选择音乐扫描路径");
             String path = chooser.showDialog(btnSelectPath.getScene().getWindow()).getAbsolutePath();
-            StringUtils.writeProperties(path);
-            this.path = path;
+            StringUtils.writeProperties("scanPath", path);
+            this.properties[0] = path;
             initView();
         });
 
-        btnScan.setOnAction(ae -> {
+        checkBoxAlwaysOnTop.setOnMouseClicked(me -> {
+            boolean b = checkBoxAlwaysOnTop.isSelected();
+            StringUtils.writeProperties("alwaysOnTop", String.valueOf(!b));
+            MainApp.stage.setAlwaysOnTop(b);
+        });
 
+        btnScan.setOnAction(ae -> {
             CompletableFuture.supplyAsync(() -> {
                 jfxSpinner.setVisible(true);
                 return ScanLocalSong.getInstance().getSongs(tfScanPath.getText().trim());
             }).whenComplete(((files, throwable) -> {
-                jfxSpinner.setVisible(false);
                 files.forEach(item -> System.out.println(item.getAbsolutePath()));
                 List<KuGouMusicPlay.DataBean> beanList = ScanLocalSong.getInstance().convertFilesToDataBean(files);
                 //扫描完成后，还需要保存数据到数据库
@@ -80,7 +94,13 @@ public class SettingViewController extends BaseController implements Initializab
                     beanList.forEach(item -> dbService.insertMusicToSpecialAlbum("local_music", item));
                 }).whenComplete((v, t) -> {
                     if (t != null) t.printStackTrace();
-                    else System.out.println("扫描的数据保存到数据，完成");
+                    else {
+                        Platform.runLater(() -> {
+                            jfxSpinner.setVisible(false);
+                            labShowMsg.setText(labShowMsg.getText() + ", 扫描的数据保存到数据，完成");
+                        });
+                        System.out.println("扫描的数据保存到数据，完成");
+                    }
                 });
 
                 Platform.runLater(() -> labShowMsg.setText("扫描完成，共有[" + files.size() +"]首歌") );

@@ -15,6 +15,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：
+ */
 public class DbServiceImpl implements IDbService {
 
     private final Gson gson = new Gson();
@@ -46,13 +51,13 @@ public class DbServiceImpl implements IDbService {
         System.out.println(searchAlbumContainSongs("album_2019_03_10_20_19_00", getTestBean()));
     }*/
 
-    private List<String> hashList = new ArrayList<>();
+   /* private List<String> hashList = new ArrayList<>();
     private KuGouMusicPlay.DataBean getTestBean() {
         hashList.add("0c8d0524e09448009312b73b3adf86d3".toUpperCase());
         List<KuGouMusicPlay> kuGouMusicPlays = SurfTheNet.handleHashs(hashList);
 
         return kuGouMusicPlays.get(0).getData();
-    }
+    }*/
 
     @Override
     public boolean createDB() {

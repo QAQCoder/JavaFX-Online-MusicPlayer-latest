@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import de.jensd.fx.glyphs.materialdesignicons.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../../css/test_css/jfxTabPane_css.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test.TestJFXTabPane">
+   <children>
+      <JFXTabPane layoutX="62.0" layoutY="54.0" prefHeight="200.0" prefWidth="200.0" side="LEFT" style="-fx-border-color: gray;" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab text="">
+              <content>
+                <AnchorPane fx:id="tabPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+                <graphic>
+                    <MaterialDesignIconView fx:id="mdView" fill="#428abb" glyphName="SENTIMENT_SATISFIED" opacity="0.0" size="2em" />
+                </graphic>
+
+                <content>
+                    <Text fx:id="text" text="123456" />
+                </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+      <TitledPane animated="false" layoutX="300.0" layoutY="52.0" text="untitled">
+        <content>
+          <AnchorPane fx:id="titlePane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        </content>
+      </TitledPane>
+   </children>
+</AnchorPane>

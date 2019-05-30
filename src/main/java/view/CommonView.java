@@ -5,14 +5,17 @@ import controller.LeftController;
 import database.DbServiceImpl;
 import database.IDbService;
 import entity.CollectionAlbum;
-import entity.KuGouMusicPlay;
 import flag.CommonResources;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.ObservableList;
 import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import node.AlbumMemberNode;
 import utils.QuickUtils;
 
@@ -20,9 +23,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
+/**
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：右键菜单核心类
+ */
 public class CommonView {
 
-    private IDbService iDbService = new DbServiceImpl();
+    private IDbService iDbService = DbServiceImpl.getInstance();
     private ContextMenu contextMenu = new ContextMenu();
     //可以添加的收藏夹list
     List<String> albumList = new ArrayList<>();
@@ -32,7 +40,15 @@ public class CommonView {
     private static List<CheckMenuItem> selectCheckBsList = new ArrayList<>();
 
     private static CommonView instance = null;
-    private CommonView() {}
+    private CommonView() {
+        /*CheckMenuItem mtTip = new CheckMenuItem();
+        Text text = new Text("添加到收藏夹");
+        text.setFill(Color.PINK);
+        mtTip.setGraphic(text);
+        mtTip.setDisable(true);
+        text.setOpacity(1.0);
+        contextMenu.getItems().add(mtTip);*/
+    }
     public static CommonView getInstance() {
         if (instance == null) {
             synchronized (CommonView.class) {
@@ -45,7 +61,7 @@ public class CommonView {
     {
         //在菜单展示的时候，去查询数据库当前歌曲所在的收藏夹
         contextMenu.setOnShowing(event -> {
-            System.out.println("--------------菜单显示----------");
+//            System.out.println("--------------菜单显示----------");
 
             ObservableList<MenuItem> items = contextMenu.getItems();
             items.forEach(item -> ((CheckMenuItem)item).setSelected(false));
@@ -86,8 +102,17 @@ public class CommonView {
         System.out.println("notifyAlbumListUpdate--------------");
         if (allAlbum != null)
             allAlbum.get().clear();
-        allAlbum.set(new DbServiceImpl().getAllAlbum(1));
-    }
+        CompletableFuture.supplyAsync(() -> {
+            return DbServiceImpl.getInstance().getAllAlbum(1);
+        }).whenComplete((albums, t) -> {
+           if (t != null) {
+               System.out.println("CommonView--notifyAlbumListUpdate()---异常");
+               t.printStackTrace();
+           } else {
+               Platform.runLater(() -> allAlbum.set(albums) );
+           }
+        });
+    }//
 
     private void cbListChange() {
         //给复选框设置选择事件
@@ -147,6 +172,8 @@ public class CommonView {
             //这里再判断contextMenu中的控件数量是否与allAlbum的一样，不一样就更新contextMenu的控件为最新
             if (allAlbum.get().size() != contextMenu.getItems().size()) {
                 contextMenu.getItems().clear();
+                /*ObservableList<MenuItem> items = contextMenu.getItems();
+                items.removeAll(items.filtered(item -> !"添加到收藏夹".equals(item.getText())));*/
                 contextMenu.getItems().addAll(selectCheckBsList);
             }
         }

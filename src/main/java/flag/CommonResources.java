@@ -6,23 +6,26 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.paint.Color;
 import node.MyImageView;
+import node.SongListMember;
+import view.PlayListsView;
+
+import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
 
 /**
- * 公共资源
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：公共资源
  */
 public class CommonResources {
 
     public static final ImageView IMAGE_PAUSE = new ImageView("img/player_icon/1_pause2.png");
     public static final ImageView IMAGE_PLAYING = new ImageView("img/player_icon/5_playing.png");
-//    public static final ImageView IMAGE_STOP = new ImageView("img/player_icon/3_stop2.png");
-//    public static final ImageView IMAGE_PLAYING_SMALL = new ImageView("icon/music_control/playing_icon.png");
-//    public static final ImageView IMAGE_PAUSE_SMALL = new ImageView("icon/music_control/pause_icon.png");
     public static final String KUGOU_ICON = "icon/search_music_icon_2.png";
 
-//    public static final ImageView IMAGE_PLAY = new ImageView(new Image("img/player_icon/圆圈2.png", 20, 20, false, false));
-//    public static final ImageView IMAGE_REMOVE = new ImageView(new Image("icon/music_control/关闭.png", 20, 20, false, false));
-
-    //三中播放模式
+    //三个播放模式
     public static final ImageView IMAGE_NORMAL_MODE = new MyImageView("icon/music_control/循环-1.png");
     public static final ImageView IMAGE_SINGLE_MODE = new MyImageView("icon/music_control/少儿-音频单曲循环.png");
     public static final ImageView IMAGE_RANDOM_MODE = new MyImageView("icon/music_control/随机-1.png");
@@ -57,6 +60,11 @@ public class CommonResources {
     //
     public static final Background BACKGROUND_HOVER = new Background(new BackgroundFill(Color.valueOf("#919191"),null, null));
     public static final Background BACKGROUND_NORMAL = new Background(new BackgroundFill(Color.LIGHTGRAY, null, null));
+//    public static final Background BACKGROUND_TRANSPARENT = new Background(new BackgroundFill(Color.TRANSPARENT, null, null));
+
+//    public static final MaterialIconView FONTAWESOME_PLAY_ICON = new MaterialIconView(MaterialIcon.PAUSE_CIRCLE_OUTLINE);
+//    public static final MaterialIconView FONTAWESOME_PAUSE_ICON = new MaterialIconView(MaterialIcon.PLAY_CIRCLE_OUTLINE);
+//    public static final MaterialIconView FONTAWESOME_DELETE_ICON = new MaterialIconView(MaterialIcon.DELETE);
 
     //当前选择的音乐bean
     public static KuGouMusicPlay.DataBean currMusicBean = null;
@@ -69,5 +77,44 @@ public class CommonResources {
         image.setFitHeight(0);
         image.setFitWidth(0);
         return image;
-    }
+    }//
+
+    public static class QuickPlayListsView {
+        private static PlayListsView playListsView = null;
+        public static PlayListsView getPlayListsView() {
+            if (playListsView == null) playListsView = new PlayListsView();
+            if (playListsView.isItemsEmpty()) playListsView.setNodeList(handleNode());
+            return playListsView;
+        }//
+
+        public static void notifyDataUpdate() {
+            if (playListsView == null) playListsView = new PlayListsView();
+            playListsView.setNodeList(handleNode());
+            playListsView.refreshView();
+        }
+
+        private static List<SongListMember> handleNode() {
+            List<SongListMember> listMembers = new ArrayList<>();
+            List<KuGouMusicPlay.DataBean> currMusicList = MusicResources.getInstance().getCurrMusicList();
+            if (currMusicList != null && currMusicList.size() > 0) {
+                Stream.iterate(0, i -> i+1).limit(MusicResources.getInstance().getCurrMusicList().size()).forEach(i -> {
+                    listMembers.add(new SongListMember(i+1, currMusicList.get(i)));
+                });
+            }
+            System.out.println("歌曲总数：" + listMembers.size());
+            return listMembers;
+        }//
+
+        public static MusicResources.CurrentSelectIndexCallback callback = index -> {
+            playListsView.setSelectOfListView(index);
+        };
+    }//
+
+    public static boolean isNetworkOK(Exception e) {
+        boolean flag = false;
+        if (e instanceof UnknownHostException) {
+            flag = true;
+        }
+        return flag;
+    };
 }

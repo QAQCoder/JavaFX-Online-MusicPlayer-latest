@@ -3,7 +3,9 @@ package entity;
 import java.util.List;
 
 /**
- * 查找数据
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：查找数据
  */
 public class SearchData {
 

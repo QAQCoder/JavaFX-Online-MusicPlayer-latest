@@ -7,7 +7,9 @@ import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 
 /**
- * 播放音乐的接口
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：播放音乐的接口
  */
 public interface IMusic {
 
@@ -17,6 +19,9 @@ public interface IMusic {
     void seek(Duration duration);
 //    void setMediaPlayerView(MediaView mediaView);
     boolean isPlayerNull();
+
+    boolean isPlaying();
+    boolean isPausing();
 
     MediaPlayer.Status getCurrStatus();
 

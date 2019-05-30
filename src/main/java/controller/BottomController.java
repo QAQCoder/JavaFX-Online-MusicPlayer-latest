@@ -9,10 +9,10 @@ import flag.CommonResources;
 import flag.Flags;
 import flag.MusicResources;
 import javafx.application.Platform;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -28,28 +28,36 @@ import org.controlsfx.control.PopOver;
 import service.IMusicService;
 import service.MusicServiceImple;
 import utils.*;
+import view.PlayListsView;
 
 import java.net.URL;
+import java.net.UnknownHostException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.concurrent.CompletableFuture;
 
+/**
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：
+ */
 public class BottomController extends BaseController implements Initializable {
 
-    @FXML public JFXButton btnPrev;
-    @FXML public JFXButton btnPlay;
-    @FXML public JFXButton btnNext;
-    @FXML public Text textCurrMusicInfo;
-    @FXML public Text textCurrTime;
-    @FXML public Text textEndTIme;
-    @FXML public JFXButton btnLike;
-    @FXML public JFXButton btnDownload;
-    @FXML public JFXButton btnPlayMode;
-    @FXML public JFXButton btnVolume;
-    @FXML public JFXButton btnLyric;
-    @FXML public Slider sliderCurrTime;
+    public JFXButton btnPrev;
+    public JFXButton btnPlay;
+    public JFXButton btnNext;
+    public Text textCurrMusicInfo;
+    public Text textCurrTime;
+    public Text textEndTIme;
+    public JFXButton btnLike;
+    public JFXButton btnDownload;
+    public JFXButton btnPlayMode;
+    public JFXButton btnVolume;
+    public JFXButton btnSongLists;
+    public JFXButton btnLyric;
+    public Slider sliderCurrTime;
     public ImageView imgV_Playing;
     public Text textBuffering;
     public Text textBufferingNetworkSlow;
@@ -63,6 +71,8 @@ public class BottomController extends BaseController implements Initializable {
     private IMusicService musicService = new MusicServiceImple();
     //
     private IDbService dbService = new DbServiceImpl();
+    //
+    private PlayListsView playListsView = null;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -106,9 +116,18 @@ public class BottomController extends BaseController implements Initializable {
             }
         });
 
-        btnPlay.setOnAction(me -> iMusic.play());
+        btnPlay.setOnAction(me -> {
+            if (iMusic.isPlayerNull()) {
+                if (!MusicResources.getInstance().isQueueEmpty()) {
+                    MusicResources.getInstance().currSong();
+                }
+            } else {
+                iMusic.play();
+            }
+        });
 
         btnLike.setOnAction(ae -> {
+            if (MusicResources.getInstance().isCurrentTimeHaveMusicPlay()) return;
             //先查询该歌曲是否存在数据库了
             KuGouMusicPlay.DataBean bean = MusicResources.getInstance().getCurrPlayingSong();
             if (bean == null) return;
@@ -138,6 +157,18 @@ public class BottomController extends BaseController implements Initializable {
             QuickUtils.showJFXDialog((StackPane) btnDownload.getScene().getRoot(),  "下载信息", selectItem.getAudio_name(), selectItem.getPlay_url());
         });
 
+        btnSongLists.setOnAction(ae -> {
+            if (playListsView == null) playListsView = CommonResources.QuickPlayListsView.getPlayListsView();
+            if (playListsView.isShowing()) {
+                playListsView.hide();
+            } else {
+                if (playListsView.isItemsEmpty()) CommonResources.QuickPlayListsView.notifyDataUpdate();
+                playListsView.show(btnSongLists);
+                MusicResources.getInstance().addCallback(CommonResources.QuickPlayListsView.callback);
+                ((Parent)playListsView.getSkin().getNode()).getStylesheets().add(this.getClass().getClassLoader().getResource("css/PopOver.css").toExternalForm());
+            }
+        });
+
         //如果slider的value改变，在拖动的时候，那么就要给用户显示拖动到哪里了
         sliderCurrTime.valueProperty().addListener(observable -> {
             if (sliderCurrTime.isValueChanging() && !iMusic.isPlayerNull()) {
@@ -147,12 +178,14 @@ public class BottomController extends BaseController implements Initializable {
         //鼠标按下，移除player的监听回调
         sliderCurrTime.setOnMousePressed(pressed -> {
             System.out.println("sliderCurrTime press");
+            if (MusicResources.getInstance().isCurrentTimeHaveMusicPlay()) return;
 //            iMusic.pause();
             iMusic.removeListener();
         });
         //鼠标释放，给player添加监听回调
         sliderCurrTime.setOnMouseReleased(released -> {
-            System.out.println("sliderCurrTime released");
+//            System.out.println("sliderCurrTime released");
+            if (MusicResources.getInstance().isCurrentTimeHaveMusicPlay()) return;
             //在释放拖动时再seek
             CompletableFuture.runAsync(() -> {
                 System.out.println("sliderCurrTime released ---> CompletableFuture.runAsync");
@@ -163,6 +196,8 @@ public class BottomController extends BaseController implements Initializable {
             }).whenComplete((aVoid, throwable) -> {
                 System.out.println("sliderCurrTime released ---> CompletableFuture.whenComplete");
                 iMusic.startListener();
+                if (throwable instanceof UnknownHostException)
+                    Notifications.create().title("错误").text("网络出现异常咯！").showWarning();
             });
         });
 
@@ -206,8 +241,7 @@ public class BottomController extends BaseController implements Initializable {
      * 下一首歌的播放回调，musicBean由MusicResources穿送过来
      */
     private final MusicResources.PlayNextCallback playNextCallback = (musicBean, playOrPause) -> {
-        if (musicBean == null)
-            iMusic.stop();
+        if (musicBean == null) iMusic.stop();
 
         MusicResources mr = MusicResources.getInstance();
         if (mr.getCurrPlayMode() != mr.SINGLE_MODE) {
@@ -232,17 +266,16 @@ public class BottomController extends BaseController implements Initializable {
         System.out.println("播放音乐-输出MusicBean：" + bean.getSong_name() + " - " + bean.getPlay_url());
         selectItem = bean;
 
-        /*猜测：加载网络图片较慢，阻塞了UI线程*/
-        imgV_Playing.setImage(new Image(selectItem.getImg()));
+        /*加载网络图片较慢，阻塞了UI线程*/
+        CompletableFuture.supplyAsync(() -> new Image(selectItem.getImg())).whenComplete((image, t) -> Platform.runLater(() -> imgV_Playing.setImage(image)));
         //先检测（播放链接是否过期）
         if (selectItem.getPlay_url().contains("http")) {
             CompletableFuture.supplyAsync(() -> {
-                System.out.println("playMusic() ---> CompletableFuture.supplyAsync");
+                System.out.println("bottomController-->playMusic--->supplyAsync--start");
                 return musicService.checkPlayUrl(selectItem.getPlay_url(), selectItem.getHash());
             }).whenComplete((bean1, throwable) -> {
-                System.out.println("playMusic() ---> CompletableFuture.whenComplete");
+                System.out.println("bottomController-->playMusic--->supplyAsync--over");
                 if (throwable != null) {
-                    System.out.println("playMusic() --> throwable != null");
                     throwable.printStackTrace();
                 }
                 if (null != bean1) {
@@ -269,11 +302,11 @@ public class BottomController extends BaseController implements Initializable {
         if (selectItem.getLyrics() == null) selectItem.setLyrics("[00:00.00]没歌词啵~");
 
         System.out.println("注入歌词----[" + selectItem.getAudio_name() + "]，开始");
-        Map<String, Object> mapIndex = IOUtils.getInitLyricList(selectItem.getLyrics());
+        Map<String, Object> lyricIndex = IOUtils.getInitLyricList(selectItem.getLyrics());
 
         Map<String, Object> mapLyric = new HashMap<>();
         mapLyric.put("musicInfo", selectItem);
-        mapLyric.put("musicLyric", mapIndex);
+        mapLyric.put("musicLyric", lyricIndex);
         if (Flags.lyricPane == null) {
             Flags.lyricPane = LoadUtil.loadFXML("fxml/items/lyric_view.fxml");
         }

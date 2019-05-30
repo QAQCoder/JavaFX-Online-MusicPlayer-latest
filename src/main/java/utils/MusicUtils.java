@@ -6,7 +6,6 @@ import entity.KuGouMusicPlay;
 import flag.CommonResources;
 import flag.MusicResources;
 import javafx.application.Platform;
-import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.scene.control.Button;
 import javafx.scene.media.Media;
@@ -18,14 +17,14 @@ import static flag.CommonResources.IMAGE_PAUSE;
 import static flag.CommonResources.IMAGE_PLAYING;
 
 /**
- * Media类是final类型的，不能继承
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：媒体播放核心控制类
  */
 public class MusicUtils implements IMusic {
 
     //
     private static MediaPlayer mediaPlayer = null;
-    //是否Player初始化了，被new了
-    private static final SimpleBooleanProperty IS_PLAYER_INIT = new SimpleBooleanProperty(false);
     //
     private static Button btnPlay = null;
     //记录当前的音量
@@ -72,10 +71,10 @@ public class MusicUtils implements IMusic {
         if (mediaPlayer != null) {
             mediaPlayer.dispose();
             mediaPlayer.bufferProgressTimeProperty().removeListener(bufferListener);
+            removeListener();
         }
         mediaPlayer = new MediaPlayer(new Media(url));
         mediaPlayer.setAutoPlay(true);
-        mediaPlayer.setOnStalled(() -> System.out.println("mediaPlayer.setOnStalled"));
         mediaPlayer.bufferProgressTimeProperty().addListener(bufferListener);
         this.startListener();
         mediaPlayer.setOnReady(() -> {
@@ -95,7 +94,11 @@ public class MusicUtils implements IMusic {
     }//getInstance
 
     private ChangeListener<Duration> bufferListener = (observable, oldValue, newValue) -> {
-        System.out.print(newValue + " - ");
+//        System.out.print(newValue + " - ");
+        if (mediaPlayer.getMedia().getSource().contains("file:/")) {
+            mediaPlayer.play();
+            return;
+        }
         if (newValue.toMillis() >= mediaPlayer.getStopTime().toMillis()) {
             System.out.println("缓冲完成");
             if (!isUserSelectPauseStatus) mediaPlayer.play();
@@ -121,6 +124,7 @@ public class MusicUtils implements IMusic {
 
     @Override
     public void play() {
+        if (mediaPlayer == null) return;
         System.out.println("playing method begin");
         if (mediaPlayer.getMedia() == null) {
             System.out.println(mediaPlayer.getMedia());
@@ -188,6 +192,15 @@ public class MusicUtils implements IMusic {
     }
 
     @Override
+    public boolean isPlaying() {
+        return mediaPlayer != null && MediaPlayer.Status.PLAYING.equals(mediaPlayer.getStatus());
+    }
+    @Override
+    public boolean isPausing() {
+        return mediaPlayer != null && MediaPlayer.Status.PAUSED.equals(mediaPlayer.getStatus());
+    }
+
+    @Override
     public MediaPlayer.Status getCurrStatus() {
         if (mediaPlayer != null) return mediaPlayer.getStatus();
         else return null;
@@ -240,13 +253,17 @@ public class MusicUtils implements IMusic {
     private ChangeListener statusChangeListener = (observable, oldValue, newValue) -> {
         if (mediaPlayer == null) return;
 
-        switch (mediaPlayer.getStatus()) {
-            case PLAYING:
-                Platform.runLater(() -> btnPlay.setGraphic(IMAGE_PLAYING));
-                break;
-            default:
-                Platform.runLater(() -> btnPlay.setGraphic(IMAGE_PAUSE));
-                break;
+        try {   //2019-04-29-这里mediaPlayer.getStatus()总会空指针，用try包围
+            switch (mediaPlayer.getStatus()) {
+                case PLAYING:
+                    Platform.runLater(() -> btnPlay.setGraphic(IMAGE_PLAYING));
+                    break;
+                default:
+                    Platform.runLater(() -> btnPlay.setGraphic(IMAGE_PAUSE));
+                    break;
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     };
 

@@ -3,7 +3,9 @@ package entity;
 import java.io.Serializable;
 
 /**
- * 对应TableView上面部分的view
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：对应TableView上面部分的view
  */
 public class TableViewPlayInfoBean  implements Serializable {
 

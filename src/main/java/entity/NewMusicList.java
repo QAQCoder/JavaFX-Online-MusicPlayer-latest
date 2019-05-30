@@ -5,7 +5,9 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 /**
- * 对应酷狗的【新歌首发】专区
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：对应酷狗的【新歌首发】专区
  */
 public class NewMusicList {
     @Override

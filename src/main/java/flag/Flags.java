@@ -3,6 +3,11 @@ package flag;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.scene.Node;
 
+/**
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：
+ */
 public class Flags {
 
     //歌词界面是否显示

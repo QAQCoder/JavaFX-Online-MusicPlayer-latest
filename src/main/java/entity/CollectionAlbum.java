@@ -1,7 +1,9 @@
 package entity;
 
 /**
- * 收藏夹实体类
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：收藏夹实体类
  */
 public class CollectionAlbum {
 

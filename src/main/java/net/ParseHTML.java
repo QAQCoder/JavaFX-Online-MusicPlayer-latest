@@ -7,9 +7,15 @@ import org.jsoup.select.Elements;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：
+ */
 public class ParseHTML {
 
     private static ParseHTML instance = null;
@@ -65,7 +71,8 @@ public class ParseHTML {
             return lists;
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("ParseHTML--getNewSongHashs()--occur exception：" + e.getMessage());
+            if (e instanceof UnknownHostException)
+                System.out.println("ParseHTML--getNewSongHashs()--occur exception：" + e.getMessage());
         }
         return null;
     }
@@ -93,10 +100,10 @@ public class ParseHTML {
         System.out.println(substring);
     }*/
 
-    /*@Test
+    @Test
     public void fun3() {
         List<List<String>> newSongHashs = getNewSongHashs();
         System.out.println(newSongHashs.size());
-        System.out.println(newSongHashs.get(0).size());
-    }*/
+        System.out.println(newSongHashs.get(0).get(1));
+    }
 }

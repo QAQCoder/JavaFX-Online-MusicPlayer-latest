@@ -3,7 +3,9 @@ package entity;
 import java.util.List;
 
 /**
- * 歌单分类
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：歌单分类
  */
 public class SongListClassify {
     /**

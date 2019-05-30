@@ -12,6 +12,11 @@ import javafx.scene.text.Text;
 
 import java.util.List;
 
+/**
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：
+ */
 public class SearchViewNode extends JFXDialogLayout {
 
     private SimpleObjectProperty<List<SearchData>> seachDataProperty = new SimpleObjectProperty<>();

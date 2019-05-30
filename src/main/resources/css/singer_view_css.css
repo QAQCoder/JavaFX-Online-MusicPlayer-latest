@@ -1,6 +1,7 @@
 /*-----------------------------------*/
 .scroll-bar {
     -fx-background-color:transparent;
+    -fx-pref-width: 10;
 }
 .scroll-bar > .track {
     -fx-background-color:transparent;
@@ -8,6 +9,7 @@
 .scroll-bar> .thumb {
     -fx-background-color: #4691c8;
     -fx-opacity: 0.5;
+    -fx-background-radius: 0;
 }
 .scroll-bar > .thumb:hover {
     -fx-background-color:#4691c8;

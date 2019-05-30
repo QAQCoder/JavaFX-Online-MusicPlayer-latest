@@ -1,17 +1,16 @@
 package app;
 
-import base.BaseStage;
-import controller.LyricController;
 import javafx.application.Application;
-import javafx.application.Platform;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 import listener.ResizeHelper;
 import main.MainStage;
+import utils.StringUtils;
 
-import java.util.Optional;
-
+/**
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：
+ */
 public class MainApp extends Application {
 
     public static void main(String[] args) {
@@ -23,24 +22,13 @@ public class MainApp extends Application {
     private static double yOffset = 0;
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) {
         stage = new MainStage("fxml/main_view.fxml");
         ResizeHelper.addResizeListener(stage);
+        if (StringUtils.readProperties() != null) {
+            stage.setAlwaysOnTop(Boolean.parseBoolean(StringUtils.readProperties()[1]));
+        }
     }//
-
-    /*public static void closeApp() {
-        stage.setOnCloseRequest(event -> {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "要退出了吗？", ButtonType.OK, ButtonType.CANCEL);
-            Optional<ButtonType> buttonType = alert.showAndWait();
-            if (buttonType.get().equals(ButtonType.OK)) {
-                Platform.exit();
-                System.exit(0);
-            } else {
-                alert.hide();
-                event.consume();
-            }
-        });
-    }*/
 
     public static void setXYOffset(double x, double y) {
         xOffset = x;

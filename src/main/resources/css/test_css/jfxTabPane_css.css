@@ -1,0 +1,15 @@
+
+tabPane {
+    -fx-background-color: #608CC7;
+}
+
+.jfx-tab-pane > .depth-container > .tab-header-area > .tab-header-background {
+    -fx-background-color: #dca0a8;
+}
+
+.jfx-tab-pane .depth-container .tab-header-area .headers-region {
+    -fx-background-image: url(../../icon/left_myMusic_rotate.png);
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center ;
+    -fx-background-size: 20;
+}

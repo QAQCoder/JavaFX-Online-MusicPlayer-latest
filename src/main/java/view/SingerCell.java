@@ -30,7 +30,9 @@ import static flag.CommonResources.BACKGROUND_HOVER;
 import static flag.CommonResources.BACKGROUND_NORMAL;
 
 /**
- * 歌手显示单元格
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：歌手显示单元格
  */
 public class SingerCell extends AnchorPane {
 

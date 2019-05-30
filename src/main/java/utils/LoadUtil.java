@@ -6,6 +6,11 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
+/**
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：
+ */
 public class LoadUtil {
     /*@Test
     public void testLoadFXML () {

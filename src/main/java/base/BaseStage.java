@@ -16,6 +16,11 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.WeakHashMap;
 
+/**
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：
+ */
 public abstract class BaseStage extends Stage {
     public static Map<String, BaseStage> BS_CONTEXT = new WeakHashMap<>();
 
@@ -26,9 +31,12 @@ public abstract class BaseStage extends Stage {
             root = loader.load();
             setScene(new Scene(root, 1000, 700));
             centerOnScreen();
-            setTitle("JavaFX在线音乐播放器");
+            setTitle("随心听-JavaFX在线音乐播放器");
             Image image = new Image("icon/音乐-2.png", 50, 50, true, true);
             getIcons().add(image);
+
+            setMinWidth(1042);
+            setMinHeight(700);
 
             initStyle(StageStyle.UNDECORATED);
 

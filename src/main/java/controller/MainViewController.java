@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.SplitPane;
@@ -31,6 +32,7 @@ import utils.LoadUtil;
 
 import java.awt.*;
 import java.net.URL;
+import java.net.UnknownHostException;
 import java.util.*;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -38,6 +40,11 @@ import java.util.concurrent.CompletableFuture;
 import static flag.FxmlFiles.BOTTOM_FXML;
 import static flag.FxmlFiles.LEFT_FXML;
 
+/**
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：
+ */
 public class MainViewController extends BaseController implements Initializable {
 
     public SplitPane splitPane;
@@ -76,9 +83,13 @@ public class MainViewController extends BaseController implements Initializable 
             if (kp.getCode().equals(KeyCode.ENTER)) searchMusic();
         });
 
+        final Parent[] settingsPane = {null};
         btnSetting.setOnAction(ae -> {
             JFXDialogLayout dialogLayout = new JFXDialogLayout();
-            dialogLayout.setBody(LoadUtil.loadFXML("fxml/items/setting_view.fxml"));
+            if (settingsPane[0] == null) {
+                settingsPane[0] = LoadUtil.loadFXML("fxml/items/setting_view.fxml");
+            }
+            dialogLayout.setBody(settingsPane[0]);
             dialogLayout.setPrefSize(600, 340);
             new JFXDialog(stackPane, dialogLayout, JFXDialog.DialogTransition.TOP).show();
         });
@@ -146,17 +157,19 @@ public class MainViewController extends BaseController implements Initializable 
 
             //使用java8的提供的异步类工具
             CompletableFuture.runAsync(() -> {
-                System.out.println("runAsync begin ");
+//                System.out.println("runAsync begin ");
                 //把标志置为false，表示正在搜索
                 CommonResources.isSearchDone = false;
                 spinnerSearch.setVisible(true);
                 updateUi(tfSearchKeyword.getText().trim(), 0);
             }).whenComplete((v, throwable) -> {
-                //搜索完成
                 CommonResources.isSearchDone = true;
                 spinnerSearch.setVisible(false);
-                if (throwable != null)
+                if (throwable != null) {
                     System.out.println("搜索音乐抛异常" + throwable.getMessage());
+                    if (throwable instanceof UnknownHostException)
+                        Notifications.create().title("错误").text("网络出现异常咯！").showWarning();
+                }
             });
         }
     }//searchMusic

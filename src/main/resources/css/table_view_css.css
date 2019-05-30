@@ -172,7 +172,27 @@
 .jfx-text-area {
     -fx-font-size: 13px;
 }
-
+.jfx-text-area >  .scroll-pane .scroll-bar {
+    -fx-background-color:transparent;
+}
+.jfx-text-area >  .scroll-pane .scroll-bar > .track {
+    -fx-background-color:transparent;
+}
+.jfx-text-area >  .scroll-pane .scroll-bar> .thumb {
+    -fx-background-color:#4691c8;
+    -fx-opacity: 0.5;
+}
+.jfx-text-area >  .scroll-pane .scroll-bar > .thumb:hover {
+    -fx-background-color:#4691c8;
+    -fx-opacity: 0.8;
+}
+.jfx-text-area >  .scroll-pane .scroll-bar> .thumb:selected {
+    -fx-background-color:#4691c8;
+    -fx-opacity: 1.0;
+}
+.jfx-text-area >  .corner {
+    -fx-background-color:transparent;
+}
 /*********************/
 .table-view > .virtual-flow > .clipped-container > .sheet > .table-row-cell > .table-column .text {
     -fx-font-family:Microsoft YaHei Light;

@@ -7,7 +7,6 @@ import controller.LeftController;
 import database.DbServiceImpl;
 import entity.CollectionAlbum;
 import entity.KuGouMusicPlay;
-import flag.CommonResources;
 import flag.MusicResources;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -19,27 +18,35 @@ import javafx.scene.layout.Region;
 import javafx.scene.text.Font;
 import org.controlsfx.control.Notifications;
 
+/**
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：
+ */
 public class AlbumMemberNode extends HBox {
 
     private KuGouMusicPlay.DataBean bean;
     private Label labSongName = new Label("林俊杰 - 江南");
+    private JFXButton btnAddToPlayQueue = new JFXButton("+");
     private JFXButton btnPlay = new JFXButton("播放");
-    private JFXButton btnRemove = new JFXButton("移除");
-    private Tooltip tooltip = new Tooltip();
+    private JFXButton btnRemove = new JFXButton("清除");
+    private final Tooltip tooltip = new Tooltip();
+//    private final Tooltip TOOLTIP_ADD_TO_QUEUE = new Tooltip("添加到播放队列");
 
     public AlbumMemberNode() {
-        setPrefWidth(250);
-        setSpacing(10);
-
+        setPrefWidth(260);
+        setSpacing(5);
         setAlignment(Pos.CENTER_LEFT);
 
-        btnPlay.setPrefWidth(48);
-        btnRemove.setPrefWidth(48);
+        btnPlay.setPrefWidth(45);
+        btnRemove.setPrefWidth(45);
 
-        labSongName.setPrefWidth(150);
+        labSongName.setPrefWidth(145);
         Region region = new Region();
         HBox.setHgrow(region, Priority.ALWAYS);
-        getChildren().addAll(labSongName, region, btnPlay, btnRemove);
+        getChildren().addAll(btnAddToPlayQueue, labSongName, region, btnPlay, btnRemove);
+
+        this.getStylesheets().add("css/my_btn_css.css");
 
         initEvent();
     }
@@ -86,8 +93,15 @@ public class AlbumMemberNode extends HBox {
             tooltip.setX(me.getScreenX());
             tooltip.setY(me.getScreenY());
         });
-
         labSongName.setOnMouseExited(me -> tooltip.hide());
+
+        /*btnAddToPlayQueue.setOnMouseEntered(me -> {
+            TOOLTIP_ADD_TO_QUEUE.setFont(Font.font(12));
+            TOOLTIP_ADD_TO_QUEUE.show(btnAddToPlayQueue.getScene().getWindow(), me.getScreenX()+5, me.getScreenY());
+        });
+        btnAddToPlayQueue.setOnMouseExited(me -> TOOLTIP_ADD_TO_QUEUE.hide());*/
+        btnAddToPlayQueue.setOnMouseClicked(me -> MusicResources.getInstance().addToPlayQueue(bean));
+
     }
 
     public KuGouMusicPlay.DataBean getBean() {

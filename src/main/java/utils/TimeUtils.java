@@ -1,12 +1,12 @@
 package utils;
 
-import org.junit.jupiter.api.Test;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * 处理时间的工具类
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：处理时间的工具类
  */
 public class TimeUtils {
 

@@ -2,22 +2,24 @@ package service;
 
 import entity.*;
 import flag.CommonResources;
+import net.ParseHTML;
 import net.SurfTheNet;
-import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
-import org.apache.http.util.EntityUtils;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 
 /**
- * 抽出来专门访问网络音乐数据的服务类，不然每次都要使用SurfTheNet类
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：抽出来专门访问网络音乐数据的服务类，不然每次都要使用SurfTheNet类
  */
 public class MusicServiceImple implements IMusicService {
 
@@ -86,6 +88,12 @@ public class MusicServiceImple implements IMusicService {
         return SurfTheNet.handleHashs(hashList);
     }
 
+    @Test
+    public void testGsonException() {
+        List<List<String>> newSongHashs = ParseHTML.getInstance().getNewSongHashs();
+        handleHashs(newSongHashs.get(0));
+    }
+
     @Override
     public KuGouMusicPlay handleHash(String hash) {
         return SurfTheNet.visitTheNetword(SurfTheNet.getCurrUrl(1) + hash, KuGouMusicPlay.class);
@@ -142,5 +150,23 @@ public class MusicServiceImple implements IMusicService {
     @Override
     public RankListContains getRankListContains(int rankId) {
         return SurfTheNet.visitTheNetword(SurfTheNet.getRankSongListContains(rankId), RankListContains.class);
+    }
+
+    @Override
+    public NewMusicList getNewestMusicList() {
+        return SurfTheNet.visitTheNetword(SurfTheNet.NEWEST_MUSIC_LIST, NewMusicList.class);
+    }
+
+    @Test
+    public void testException() {
+//        getRankList();
+        /*CompletableFuture.supplyAsync(this::getRankList).whenComplete((newMusicList, throwable) -> {
+            if (throwable != null) System.out.println(throwable.getMessage());
+        });*/
+        CompletableFuture.runAsync(() -> {
+            throw new IllegalArgumentException("ppp");
+        }).whenComplete((aVoid, throwable) -> {
+            System.out.println(throwable.getMessage());
+        });
     }
 }

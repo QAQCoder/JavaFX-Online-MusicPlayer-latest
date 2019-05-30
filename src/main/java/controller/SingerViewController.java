@@ -28,6 +28,11 @@ import java.util.ResourceBundle;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
+/**
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：
+ */
 public class SingerViewController extends BaseController implements Initializable {
 
     public JFXMasonryPane jfxMasonryPaneDetail;
@@ -40,7 +45,8 @@ public class SingerViewController extends BaseController implements Initializabl
     private JFXButton[] btnA_Z = new JFXButton[26];
     private MyButton[] btnSingerClassify = new MyButton[10];
     public VBox vbox;
-    private IMusicService iMusicService = new MusicServiceImple();
+    private int currSelectClassifyId = 88;
+    private IMusicService iMusicService = MusicServiceImple.getInstance();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -96,13 +102,17 @@ public class SingerViewController extends BaseController implements Initializabl
 
     private void init_SingerClassify_Button_Event(MyButton btn) {
         btn.setOnAction(ae -> {
-            System.out.println("请求歌手分类：" + btn.getText() + " - " + btn.getAttribute());
-            updateUi(null, Integer.parseInt(btn.getAttribute()));
+//            System.out.println("请求歌手分类：" + btn.getText() + " - " + btn.getAttribute());
+            currSelectClassifyId = Integer.parseInt(btn.getAttribute());
+            updateUi(null, currSelectClassifyId);
         });
     }
 
     private void initEvent() {
-        btnRefresh.setOnAction(ae -> initData(88));
+        btnRefresh.setOnAction(ae -> {
+            if (vbox.getChildren().size() <= 1) init_SingerClassify_Button();
+            initData(currSelectClassifyId);
+        });
     }//
 
     @Override
@@ -122,22 +132,20 @@ public class SingerViewController extends BaseController implements Initializabl
             CommonResources.isSingerRefreshDone = true; //改标志
 
             if (throwable != null) {    //判断是否发生异常
-                jfxSpinner.setVisible(false); //隐藏进度条
                 throwable.printStackTrace();    //打印异常调用栈
-//                System.out.println("SingerViewController---initData--获取歌手--抛异常" + throwable.getMessage());
-                Notifications.create().title("错误").text("获取歌手列表失败--->" + throwable.getMessage()).showInformation();
+                Platform.runLater(() -> jfxSpinner.setVisible(false)); //隐藏进度条
+                System.out.println("SingerViewController---initData--获取歌手--抛异常" + throwable.getMessage());
             } else if (null != list){
                 if (jfxMPaneDetailChildren.size() > 0)
                     Platform.runLater(() -> jfxMPaneDetailChildren.clear() );
                 List<SingerList.SingersBean.ListBean.InfoBean> singersListInfo = list.getSingers().getList().getInfo();
-                System.out.println("歌手数量：" + singersListInfo.size());
+//                System.out.println("歌手数量：" + singersListInfo.size());
 
                 ObservableList<SingerCell> singerCellObservableList = FXCollections.observableArrayList();
                 singersListInfo.forEach(item -> singerCellObservableList.add(new SingerCell(item)));
                 Platform.runLater(() -> jfxMPaneDetailChildren.addAll(singerCellObservableList));
-
-                jfxSpinner.setVisible(false); //隐藏进度条
 //                Notifications.create().title("成功").text("获取歌手列表成功").showInformation();
+                Platform.runLater(() -> jfxSpinner.setVisible(false)); //隐藏进度条
             }
         });
     }//

@@ -26,6 +26,11 @@ import java.util.concurrent.CompletableFuture;
 import static flag.CommonResources.BACKGROUND_HOVER;
 import static flag.CommonResources.BACKGROUND_NORMAL;
 
+/**
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：
+ */
 public class SongListCell extends AnchorPane {
 
     private static IMusicService iMusicService = new MusicServiceImple();

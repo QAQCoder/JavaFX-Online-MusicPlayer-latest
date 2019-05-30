@@ -6,7 +6,9 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * 每个歌手的歌手信息
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：每个歌手的歌手信息
  * 特殊之处：接口地址: http://m.kugou.com/singer/info/3060&json=true 该接口目前有些问题 需要追加request headers 设置成手机浏览器
  */
 public class SingerListContains implements Serializable {

@@ -6,7 +6,9 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * 排行榜包含的歌曲
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/5/30 12:04
+ * Class description：排行榜包含的歌曲
  */
 public class RankListContains implements Serializable {
     /**

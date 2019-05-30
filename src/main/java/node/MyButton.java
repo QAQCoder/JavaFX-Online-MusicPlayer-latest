@@ -4,7 +4,9 @@ import com.jfoenix.controls.JFXButton;
 import javafx.scene.Node;
 
 /**
- * 自定义按钮，新增attribute字段，用来储存额外信息
+ * Author QAQCoder , Email:QAQCoder@qq.com
+ * Create time 2019/4/2
+ * Class description：自定义按钮，新增attribute字段，用来储存额外信息
  */
 public class MyButton extends JFXButton {
 
@@ -29,6 +31,10 @@ public class MyButton extends JFXButton {
 
     public MyButton() {
         super();
+    }
+
+    public void setHoverStyle() {
+        getStylesheets().add("css/my_btn_css.css");
     }
 
     public MyButton(String text, Node graphic) {

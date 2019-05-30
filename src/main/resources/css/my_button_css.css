@@ -14,6 +14,11 @@
     -fx-font-family: "Microsoft YaHei Light";
 }
 
+.btnQAQ > .text {
+    -fx-font-size: 15px;
+    -fx-font-family: "Microsoft YaHei UI";
+}
+
 .hBox {
     -fx-background-color: transparent;
 }

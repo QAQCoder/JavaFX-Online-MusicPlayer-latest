@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox alignment="CENTER_LEFT" fillHeight="false" minHeight="65.0" prefHeight="65.0" prefWidth="850.0" styleClass="hbox" stylesheets="@../../css/bottomPane_css.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BottomController">
+<HBox alignment="CENTER_LEFT" fillHeight="false" minHeight="65.0" prefHeight="65.0" styleClass="hbox" stylesheets="@../../css/bottomPane_css.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BottomController">
     <children>
       <ImageView fx:id="imgV_Playing" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -91,7 +91,7 @@
                   <Insets />
                </VBox.margin>
             </HBox>
-                <Slider fx:id="sliderCurrTime" prefWidth="300.0" VBox.vgrow="ALWAYS">
+                <Slider fx:id="sliderCurrTime" VBox.vgrow="ALWAYS">
                     <VBox.margin>
                         <Insets top="10.0" />
                     </VBox.margin>
@@ -118,7 +118,7 @@
          <font>
             <Font name="Microsoft YaHei Bold" size="13.0" />
          </font></Text>
-        <JFXButton fx:id="btnLike" contentDisplay="CENTER" layoutX="122.0" layoutY="37.0" prefHeight="24.0" prefWidth="20.0" text="">
+        <JFXButton fx:id="btnLike" contentDisplay="CENTER" layoutX="122.0" layoutY="37.0" prefHeight="24.0" prefWidth="25.0" text="">
             <HBox.margin>
                 <Insets left="10.0" />
             </HBox.margin>
@@ -128,7 +128,7 @@
                 </ImageView>
             </graphic>
         </JFXButton>
-        <JFXButton fx:id="btnDownload" contentDisplay="CENTER" layoutX="634.0" layoutY="31.0" prefHeight="24.0" prefWidth="20.0" text="">
+        <JFXButton fx:id="btnDownload" contentDisplay="CENTER" layoutX="634.0" layoutY="31.0" prefHeight="24.0" prefWidth="25.0" text="">
             <graphic>
                 <ImageView fitHeight="20.0" fitWidth="20.0">
                     <Image url="@../../icon/music_control/下载-1.png" />
@@ -138,7 +138,7 @@
                 <Insets left="10.0" />
             </HBox.margin>
         </JFXButton>
-        <JFXButton fx:id="btnPlayMode" contentDisplay="CENTER" layoutX="634.0" layoutY="31.0" prefHeight="20.0" prefWidth="20.0" textFill="#e6ecf500" HBox.hgrow="ALWAYS">
+        <JFXButton fx:id="btnPlayMode" contentDisplay="CENTER" layoutX="634.0" layoutY="31.0" prefHeight="20.0" prefWidth="25.0" textFill="#e6ecf500" HBox.hgrow="ALWAYS">
             <graphic>
                 <ImageView fitHeight="24.0" fitWidth="24.0">
                     <Image url="@../../icon/music_control/循环-1.png" />
@@ -151,7 +151,7 @@
                 <Insets left="10.0" />
             </HBox.margin>
         </JFXButton>
-        <JFXButton fx:id="btnVolume" contentDisplay="CENTER" layoutX="683.0" layoutY="31.0" prefHeight="24.0" prefWidth="45.0" styleClass="font-color" text="">
+        <JFXButton fx:id="btnVolume" contentDisplay="CENTER" layoutX="683.0" layoutY="31.0" prefHeight="24.0" prefWidth="25.0" styleClass="font-color" text="">
             <font>
                 <Font name="Microsoft YaHei Bold" size="13.0" />
             </font>
@@ -160,14 +160,24 @@
                     <Image url="@../../icon/music_control/音量.png" />
                 </ImageView>
             </graphic>
-            <padding>
-                <Insets left="-10.0" right="-10.0" />
-            </padding>
             <HBox.margin>
                 <Insets left="10.0" />
             </HBox.margin>
         </JFXButton>
-        <JFXButton fx:id="btnLyric" contentDisplay="CENTER" layoutX="667.0" layoutY="31.0" prefHeight="24.0" prefWidth="62.0" styleClass="font-color" text="">
+        <JFXButton fx:id="btnSongLists" contentDisplay="CENTER" layoutX="683.0" layoutY="31.0" prefHeight="22.0" prefWidth="25.0" styleClass="font-color" text="">
+            <font>
+                <Font name="Microsoft YaHei Bold" size="13.0" />
+            </font>
+            <graphic>
+                <ImageView fitHeight="22.0" fitWidth="22.0">
+                    <Image url="@../../icon/music_control/播放列表.png" />
+                </ImageView>
+            </graphic>
+            <HBox.margin>
+                <Insets left="10.0" />
+            </HBox.margin>
+        </JFXButton>
+        <JFXButton fx:id="btnLyric" contentDisplay="CENTER" layoutX="667.0" layoutY="31.0" prefHeight="22.0" prefWidth="25.0" styleClass="font-color" text="">
             <font>
                 <Font name="Microsoft YaHei Bold" size="13.0" />
             </font>
@@ -176,9 +186,6 @@
                     <Image url="@../../icon/music_control/歌词调整.png" />
                 </ImageView>
             </graphic>
-            <padding>
-                <Insets left="-10.0" right="-10.0" />
-            </padding>
         </JFXButton>
     </children>
     <padding>

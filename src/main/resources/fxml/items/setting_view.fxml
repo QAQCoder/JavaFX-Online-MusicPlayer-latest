@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
 <?import com.jfoenix.controls.JFXSpinner?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
@@ -9,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="340.0" prefWidth="525.0" stylesheets="@../../css/setting_css.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SettingViewController">
+<AnchorPane prefHeight="340.0" prefWidth="525.0" style="-fx-background-color: #f7f7f7;" stylesheets="@../../css/setting_css.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SettingViewController">
    <children>
        <Text layoutX="34.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="设置" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="15.0">
            <font>
@@ -25,17 +26,18 @@
       <JFXButton fx:id="btnSelectPath" layoutX="422.0" layoutY="59.0" style="-fx-background-color: pink;" text="   选择   " AnchorPane.rightAnchor="30.0" />
       <JFXButton fx:id="btnScan" layoutX="422.0" layoutY="95.0" style="-fx-background-color: pink;" text="扫描音乐" AnchorPane.rightAnchor="30.0" />
       <JFXSpinner fx:id="jfxSpinner" layoutX="191.0" layoutY="158.0" prefHeight="50.0" prefWidth="50.0" visible="false" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="125.0" />
-       <Label fx:id="labShowMsg" alignment="CENTER" contentDisplay="CENTER" layoutY="186.0" text="" textAlignment="RIGHT" AnchorPane.bottomAnchor="185.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="186.0">
+       <Label fx:id="labShowMsg" alignment="CENTER" contentDisplay="CENTER" layoutY="197.0" text="" textAlignment="RIGHT" AnchorPane.bottomAnchor="174.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="197.0">
            <font>
                <Font name="Microsoft YaHei Light" size="20" />
            </font>
        </Label>
-      <Text layoutX="30.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="关于">
+      <Text layoutX="30.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" text="关于">
          <font>
             <Font name="Microsoft YaHei Light" size="20.0" />
          </font>
       </Text>
       <JFXButton fx:id="btnFullScreen" layoutX="432.0" layoutY="151.0" style="-fx-background-color: pink;" text="   全屏   " AnchorPane.rightAnchor="30.0" />
-      <JFXTextArea editable="false" labelFloat="true" layoutX="82.0" layoutY="247.0" prefHeight="112.0" prefWidth="425.0" text="开发者：QAQCoder                 开发背景：毕业设计&#10;&#10;在线音乐来自酷狗音乐&#10;&#10;GitHub地址：https://github.com/QAQCoder/JavaFX-Online-MusicPlayer&#10;&#10;Email: QAQCoder@qq.com" unFocusColor="WHITE" />
+      <JFXTextArea editable="false" labelFloat="true" layoutX="82.0" layoutY="250.0" prefHeight="112.0" prefWidth="425.0" text="开发者：QAQCoder                 开发背景：毕业设计         &#10;&#10;在线音乐来自酷狗音乐              JavaFX交流QQ群：518914410&#10;&#10;GitHub地址：https://github.com/QAQCoder/JavaFX-Online-MusicPlayer&#10;&#10;Email: QAQCoder@qq.com" unFocusColor="WHITE" />
+      <JFXCheckBox fx:id="checkBoxAlwaysOnTop" layoutX="475.0" layoutY="220.0" mnemonicParsing="false" text="总是置顶" />
    </children>
 </AnchorPane>
