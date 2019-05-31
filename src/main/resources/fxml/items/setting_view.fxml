@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXCheckBox?>
 <?import com.jfoenix.controls.JFXSpinner?>
@@ -10,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="340.0" prefWidth="525.0" style="-fx-background-color: #f7f7f7;" stylesheets="@../../css/setting_css.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SettingViewController">
+<AnchorPane prefHeight="340.0" prefWidth="525.0" style="-fx-background-color: #f7f7f7;" stylesheets="@../../css/setting_css.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SettingViewController">
    <children>
        <Text layoutX="34.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="设置" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="15.0">
            <font>
@@ -37,7 +42,7 @@
          </font>
       </Text>
       <JFXButton fx:id="btnFullScreen" layoutX="432.0" layoutY="151.0" style="-fx-background-color: pink;" text="   全屏   " AnchorPane.rightAnchor="30.0" />
-      <JFXTextArea editable="false" labelFloat="true" layoutX="82.0" layoutY="250.0" prefHeight="112.0" prefWidth="425.0" text="开发者：QAQCoder                 开发背景：毕业设计         &#10;&#10;在线音乐来自酷狗音乐              JavaFX交流QQ群：518914410&#10;&#10;GitHub地址：https://github.com/QAQCoder/JavaFX-Online-MusicPlayer&#10;&#10;Email: QAQCoder@qq.com" unFocusColor="WHITE" />
+      <JFXTextArea editable="false" labelFloat="true" layoutX="49.0" layoutY="261.0" prefHeight="112.0" prefWidth="464.0" text="开发者：QAQCoder                 开发背景：毕业设计         &#10;&#10;在线音乐来自酷狗音乐              欢迎star本项目           &#10;&#10;项目地址：https://github.com/QAQCoder/JavaFX-Online-MusicPlayer-latest&#10;&#10;Email: QAQCoder@qq.com" unFocusColor="WHITE" />
       <JFXCheckBox fx:id="checkBoxAlwaysOnTop" layoutX="475.0" layoutY="220.0" mnemonicParsing="false" text="总是置顶" />
    </children>
 </AnchorPane>
