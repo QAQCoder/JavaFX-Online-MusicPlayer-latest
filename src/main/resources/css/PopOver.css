@@ -5,7 +5,7 @@
     /*-fx-fill: transparent; !* instead -fx-background-color *!*/
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,.2), 10.0, 0.5, 2.0, 2.0);
     -fx-cursor: move;
-    -fx-opacity: 0.7;
+    -fx-opacity: 0.85;
 }
 
 .popover {
