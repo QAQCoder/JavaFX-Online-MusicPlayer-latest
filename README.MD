@@ -9,6 +9,7 @@
 学习过程中，参考了一些优秀的JavaFX项目：
 
 1.JavaFX单机版音乐播放器：https://github.com/Mpmart08/MusicPlayer
+
 2.JavaFX即时通讯客户端：https://github.com/GZYangKui/ChangLiao-Desktop
 
 项目使用的第三方库：JFoenix，AnimateFX，ControlFX，Gson，SQLite
