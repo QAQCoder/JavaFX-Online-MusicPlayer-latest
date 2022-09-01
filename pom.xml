@@ -132,7 +132,7 @@
             <!-- jsoup HTML parser library @ https://jsoup.org/ -->
             <groupId>org.jsoup</groupId>
             <artifactId>jsoup</artifactId>
-            <version>1.11.3</version>
+            <version>1.15.3</version>
         </dependency>
 
         <!-- 解析音乐mp3的类库 https://mvnrepository.com/artifact/org/jaudiotagger -->
